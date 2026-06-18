@@ -1,0 +1,14 @@
+# Claude Code internal files
+.claude/
+
+# PRD / planning docs — keep off public repo
+Portfolio_PRD.md
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editors
+.vscode/
+*.swp
