@@ -411,7 +411,7 @@
     }
   </style>
 </head>
-<body>
+<body id="top">
   <a class="skip-link" href="#main-content">Skip to main content</a>
 
   <svg class="sr-only" aria-hidden="true" focusable="false">
@@ -460,7 +460,16 @@
   </header>
 
   <main id="main-content">
-    <section class="hero" id="top" aria-labelledby="hero-title">
+    <aside class="metrics" aria-label="Career credibility metrics">
+      <div class="container metrics-grid">
+        <div class="metric"><strong class="metric-value">20+</strong><span class="metric-label">years in technology and production support</span></div>
+        <div class="metric"><strong class="metric-value">82%</strong><span class="metric-label">year-over-year reduction in major system outages</span></div>
+        <div class="metric"><strong class="metric-value">99.9%+</strong><span class="metric-label">application availability sustained</span></div>
+        <div class="metric"><strong class="metric-value">182+</strong><span class="metric-label">corporate and retail locations supported nationally</span></div>
+      </div>
+    </aside>
+
+    <section class="hero" aria-labelledby="hero-title">
       <div class="container hero-grid">
         <div class="hero-copy">
           <p class="eyebrow">Greater Toronto Area · Senior IT Leadership</p>
@@ -483,47 +492,38 @@
       </div>
     </section>
 
-    <aside class="metrics" aria-label="Career credibility metrics">
-      <div class="container metrics-grid">
-        <div class="metric"><strong class="metric-value">20+</strong><span class="metric-label">years in technology and production support</span></div>
-        <div class="metric"><strong class="metric-value">82%</strong><span class="metric-label">year-over-year reduction in major system outages</span></div>
-        <div class="metric"><strong class="metric-value">99.9%+</strong><span class="metric-label">application availability sustained</span></div>
-        <div class="metric"><strong class="metric-value">182+</strong><span class="metric-label">corporate and retail locations supported nationally</span></div>
-      </div>
-    </aside>
-
     <section class="section" id="work" aria-labelledby="work-title">
       <div class="container">
         <header class="section-head">
           <p class="eyebrow">Selected work</p>
           <h2 id="work-title">Leadership demonstrated through delivery</h2>
-          <p class="section-intro">Enterprise modernization, commercial product development, and independent analytics work—each presented with a clear role, honest status, and tangible operating context.</p>
+          <p class="section-intro">Enterprise modernization, a nationwide telecommunications launch, commercial product development, and independent analytics work—each presented with a clear role, honest status, and tangible operating context.</p>
         </header>
 
         <!-- PROJECT STATUSES: update status labels and matching classes here. -->
         <div class="project-list">
           <article class="project-card" aria-labelledby="project-ai-title">
             <div class="project-summary">
-              <div class="project-topline"><span class="project-number">01</span><span class="status status-delivered">Delivered</span></div>
-              <h3 id="project-ai-title">AI-Driven Self-Service &amp; Modernization</h3>
-              <p>Turned frontline support knowledge into repeatable operational playbooks and the logic for AI-assisted self-service in a 24/7 national environment.</p>
+              <div class="project-topline"><span class="project-number">01</span><span class="status status-delivered">Production + Pilot</span></div>
+              <h3 id="project-ai-title">AI-Enabled Service Modernization</h3>
+              <p>Built the production data and reporting foundation for AI-enabled service insights while piloting conversational self-service for associates in a 24/7 national environment.</p>
               <div class="project-meta">
                 <span class="meta-label">Role</span>
-                <strong>Program &amp; operations leader</strong>
+                <strong>Integration, data &amp; analytics lead</strong>
                 <span class="meta-label">Context</span>
                 <span>The Home Depot Canada</span>
-                <ul class="tags" aria-label="Capabilities and technologies"><li>ServiceNow</li><li>BigQuery ML</li><li>ITSM</li><li>Responsible AI</li></ul>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>GCP</li><li>Conversational AI</li><li>ServiceNow</li><li>Power BI</li></ul>
               </div>
             </div>
             <details class="project-details">
               <summary>Read the AI modernization case study</summary>
               <div class="case-study">
                 <div class="case-grid">
-                  <div class="case-block"><h4>Context &amp; problem</h4><p>National support operations across 182+ corporate and retail locations needed consistent knowledge, faster resolution paths, and stronger signals for proactive incident management.</p></div>
-                  <div class="case-block"><h4>Responsibilities &amp; decisions</h4><p>As Manager, Information Systems, Ryan led service operations, incident governance, support-team development, and the decision to codify operational knowledge before applying AI.</p></div>
-                  <div class="case-block"><h4>Approach</h4><p>Support practices were converted into reusable playbooks that became the logic for an AI-driven self-service tool. BigQuery ML and ServiceNow Predictive Intelligence helped surface patterns and support more proactive decisions.</p></div>
-                  <div class="case-block"><h4>Outcomes &amp; impact</h4><p>The operating model improved service-desk Average Speed of Answer from four minutes to under 90 seconds and reduced call abandonment from 13% to under 5%, while strengthening repeatability across the support environment.</p></div>
-                  <div class="case-block"><h4>Operating model</h4><p>ITIL-aligned incident, problem, change, knowledge, root-cause analysis, post-incident review, ServiceNow, BigQuery ML, Power BI, Tableau, and vendor partnership.</p></div>
+                  <div class="case-block"><h4>Context &amp; opportunity</h4><p>The organization evaluated several ways to use AI to improve service quality: modernizing IVR workflows, capturing and analyzing conversations for intent, mining interaction data for issue and process trends, and enabling associate self-service.</p></div>
+                  <div class="case-block"><h4>Responsibilities &amp; ownership</h4><p>Ryan owned vendor onboarding and integration, creation of the GCP data pipeline, and the analytics and reporting built around the ingested data.</p></div>
+                  <div class="case-block"><h4>Production data foundation</h4><p>Interaction data was brought into GCP and analyzed alongside ServiceNow data to identify defects and emerging trends in near real time. Power BI reporting became central to daily and weekly executive-level reporting.</p></div>
+                  <div class="case-block"><h4>Conversational AI pilot</h4><p>An associate-facing, text-based conversational AI solution used operational playbooks to encapsulate company processes and policies. The solution was running as a pilot in Google Cloud when Ryan left the organization.</p></div>
+                  <div class="case-block"><h4>Operational impact</h4><p>The modernization and new reporting signals contributed to stronger help-desk performance and informed leadership decisions about the direction, improvement, and modernization of enterprise applications.</p></div>
                   <div class="case-block"><h4>Constraints</h4><p>Employer-confidential implementation details, ticket volumes, adoption figures, and cost savings are intentionally not disclosed.</p></div>
                 </div>
                 <div class="case-cta"><p>Looking for this blend of operational leadership and practical AI?</p><a href="#contact">Start a conversation</a></div>
@@ -531,16 +531,45 @@
             </details>
           </article>
 
+          <article class="project-card" aria-labelledby="project-wimax-title">
+            <div class="project-summary">
+              <div class="project-topline"><span class="project-number">02</span><span class="status status-delivered">Delivered</span></div>
+              <h3 id="project-wimax-title">Islandwide 4G WiMAX Launch — Jamaica</h3>
+              <p>Led core application integrations for a year-long launch that brought wireless 4G internet access across Jamaica, including communities without another internet option.</p>
+              <div class="project-meta">
+                <span class="meta-label">Role</span>
+                <strong>Senior Application Support Engineer</strong>
+                <span class="meta-label">Context</span>
+                <span>Digicel Jamaica · 2010–2011</span>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>4G WiMAX</li><li>AAA</li><li>Billing Integration</li><li>Production Stabilization</li></ul>
+              </div>
+            </div>
+            <details class="project-details">
+              <summary>Read the 4G WiMAX launch case study</summary>
+              <div class="case-study">
+                <div class="case-grid">
+                  <div class="case-block"><h4>Context &amp; significance</h4><p>At the time, this was the first islandwide 4G WiMAX launch of its kind in the Caribbean. The service expanded wireless internet access across Jamaica, including areas where no other internet access was available.</p></div>
+                  <div class="case-block"><h4>Responsibilities &amp; ownership</h4><p>Ryan led and managed the technical integration of the applications supporting the launch, with responsibility for AAA authentication and authorization, billing, and integration with existing billing platforms.</p></div>
+                  <div class="case-block"><h4>Launch readiness</h4><p>The work connected new WiMAX capabilities with established operational systems and prepared the application-support environment for an islandwide production launch.</p></div>
+                  <div class="case-block"><h4>Production stabilization</h4><p>Stabilizing production and resolving early integration issues were the largest hurdles. Ryan spearheaded several recovery and improvement efforts, working closely with the wider team to deliver a robust, stable solution.</p></div>
+                  <div class="case-block"><h4>Follow-on phase</h4><p>OMA Device Management was introduced separately after the initial launch as a follow-on phase of the solution.</p></div>
+                  <div class="case-block"><h4>Team delivery</h4><p>The launch depended on sustained collaboration across application support, network, billing, vendor, and operational teams over approximately one year.</p></div>
+                </div>
+                <div class="case-cta"><p>Need technical leadership for a complex integration or service launch?</p><a href="#contact">Start a conversation</a></div>
+              </div>
+            </details>
+          </article>
+
           <article class="project-card" aria-labelledby="project-dsr-title">
             <div class="project-summary">
-              <div class="project-topline"><span class="project-number">02</span><span class="status status-development">In Development</span></div>
+              <div class="project-topline"><span class="project-number">03</span><span class="status status-delivered">Delivered</span></div>
               <h3 id="project-dsr-title">DSR Commercial</h3>
               <p>Co-founded and architected a marketplace for commercial, industrial, and agricultural vehicles and equipment, carrying product decisions from architecture through business-model iteration.</p>
               <div class="project-meta">
                 <span class="meta-label">Role</span>
                 <strong>Co-founder, Product &amp; Technology</strong>
                 <span class="meta-label">Current state</span>
-                <span>Phase 2 complete; Phase 3 substantially complete</span>
+                <span>Operational product with continued enhancement</span>
                 <ul class="tags" aria-label="Capabilities and technologies"><li>Next.js 16</li><li>React 19</li><li>Supabase</li><li>Product Strategy</li><li>Vercel</li></ul>
               </div>
             </div>
@@ -551,9 +580,9 @@
                   <div class="case-block"><h4>Context &amp; problem</h4><p>Commercial equipment buyers and sellers need a focused discovery and listing experience suited to varied inventory across vehicles, industrial equipment, and agricultural machinery.</p></div>
                   <div class="case-block"><h4>Responsibilities &amp; decisions</h4><p>Ryan owns technical direction and co-owns product strategy, including platform architecture, listing workflows, promotion tiers, delivery sequencing, and launch readiness.</p></div>
                   <div class="case-block"><h4>Approach</h4><p>The product is being delivered in phases, validating core marketplace behavior before introducing monetized promotion tiers: Boost, Premium, and Featured.</p></div>
-                  <div class="case-block"><h4>Outcomes &amp; current state</h4><p>Phase 2 is complete and Phase 3 is substantially complete. The work demonstrates hands-on product ownership from system design through business-model iteration; it is not presented as a finished public launch.</p></div>
+                  <div class="case-block"><h4>Outcomes &amp; current state</h4><p>DSR Commercial has been delivered as an operational product. The work demonstrates hands-on product ownership from system design and launch through continued business-model and feature iteration.</p></div>
                   <div class="case-block"><h4>Stack</h4><p>Next.js 16, React 19, Supabase, Tailwind CSS v4, and Vercel.</p></div>
-                  <div class="case-block"><h4>What remains</h4><p>A custom domain and live Stripe payments remain launch items. The private staging environment is intentionally not linked.</p></div>
+                  <div class="case-block"><h4>Ongoing evolution</h4><p>As an active product, the platform continues to evolve across customer experience, marketplace operations, promotion capabilities, and monetization.</p></div>
                 </div>
                 <div class="case-cta"><p>Interested in product leadership grounded in operations?</p><a href="#contact">Start a conversation</a></div>
               </div>
@@ -562,7 +591,7 @@
 
           <article class="project-card" aria-labelledby="project-market-title">
             <div class="project-summary">
-              <div class="project-topline"><span class="project-number">03</span><span class="status status-development">In Development</span></div>
+              <div class="project-topline"><span class="project-number">04</span><span class="status status-development">In Development</span></div>
               <h3 id="project-market-title">Market Intelligence &amp; Analytics Platform</h3>
               <p>Architecting a multi-source research platform that emphasizes data validation, signal quality, guarded interpretation, and structured reporting.</p>
               <div class="project-meta">
