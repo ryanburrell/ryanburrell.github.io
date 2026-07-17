@@ -1,1614 +1,715 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en-CA">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ryan L. Burrell — Senior Enterprise Application Support &amp; Technology Manager</title>
-<meta name="description" content="Senior technology leader with 20+ years in enterprise application support. Deep L3 telecoms platform depth, team leadership, and AI-driven modernization.">
-<meta property="og:title" content="Ryan L. Burrell — Senior Enterprise Technology Leader">
-<meta property="og:description" content="20+ years in L3 enterprise application support. Mission-critical systems, kept running.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://ryanburrell.github.io">
-<meta name="twitter:card" content="summary_large_image">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* =============================================================
-   DESIGN SYSTEM — Signal Dark
-   Editorial telemetry aesthetic. Deep charcoal, electric cyan.
-   ============================================================= */
-:root{
-  /* Backgrounds */
-  --bg:        #111318;
-  --surface:   #181B23;
-  --surface-hi:#1E2130;
-  --foot:      #0C0E13;
-
-  /* Borders */
-  --border:    #272B3C;
-  --border-hi: #3A3F58;
-
-  /* Text */
-  --text:      #E5E8F4;
-  --text-2:    #8892B0;
-  --text-3:    #4A5070;
-
-  /* Accents */
-  --cyan:      #22D3EE;
-  --cyan-dim:  rgba(34,211,238,.11);
-  --cyan-glow: rgba(34,211,238,.06);
-  --green:     #4ADE80;
-  --amber:     #FBBF24;
-  --violet:    #A78BFA;
-
-  /* Typography */
-  --display: 'Space Grotesk',-apple-system,sans-serif;
-  --body:    'IBM Plex Sans',-apple-system,sans-serif;
-  --mono:    'IBM Plex Mono',ui-monospace,monospace;
-
-  --maxw: 1100px;
-}
-
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-html{scroll-behavior:smooth;}
-body{
-  font-family:var(--body);
-  background:var(--bg);
-  color:var(--text);
-  line-height:1.65;
-  -webkit-font-smoothing:antialiased;
-  text-rendering:optimizeLegibility;
-  overflow-x:hidden;
-}
-a{color:inherit;text-decoration:none;}
-img{max-width:100%;display:block;}
-.wrap{max-width:var(--maxw);margin:0 auto;padding:0 28px;}
-
-
-/* ============================================================
-   NAV
-   ============================================================ */
-nav{
-  position:sticky;top:0;z-index:50;
-  background:rgba(24,27,35,.92);
-  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
-  border-bottom:1px solid var(--border);
-  /* Signature top accent line */
-  box-shadow:inset 0 1px 0 0 rgba(34,211,238,.35);
-  transition:background .22s,box-shadow .22s;
-}
-nav.scrolled{
-  background:rgba(17,19,24,.96);
-  box-shadow:inset 0 1px 0 0 rgba(34,211,238,.25),
-             0 4px 24px rgba(0,0,0,.45);
-}
-.nav-inner{
-  display:flex;align-items:center;justify-content:space-between;
-  height:62px;transition:height .22s ease;
-}
-nav.scrolled .nav-inner{height:54px;}
-.brand{
-  font-family:var(--display);font-weight:700;
-  font-size:1rem;letter-spacing:.03em;color:var(--text);
-}
-.brand em{font-style:normal;color:var(--cyan);}
-.nav-links{display:flex;gap:28px;list-style:none;}
-.nav-links a{
-  font-family:var(--mono);font-size:.73rem;letter-spacing:.07em;
-  color:var(--text-2);text-transform:uppercase;
-  transition:color .15s;position:relative;padding-bottom:2px;
-}
-.nav-links a::after{
-  content:'';position:absolute;bottom:-1px;left:0;
-  width:0;height:1px;background:var(--cyan);
-  transition:width .2s ease;
-}
-.nav-links a:hover,
-.nav-links a.active{color:var(--cyan);}
-.nav-links a:hover::after,
-.nav-links a.active::after{width:100%;}
-
-
-/* ============================================================
-   HERO
-   ============================================================ */
-header.hero{
-  background:var(--bg);
-  position:relative;overflow:hidden;
-  padding-bottom:0;
-}
-/* Dot-grid atmosphere */
-header.hero::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(34,211,238,.07) 1px,transparent 1px);
-  background-size:36px 36px;
-  pointer-events:none;z-index:0;
-}
-/* Horizon glow at bottom */
-.hero-atmosphere{
-  position:absolute;bottom:-60px;left:-100px;right:-100px;height:280px;
-  background:radial-gradient(ellipse at 50% 100%,
-    rgba(34,211,238,.09) 0%,
-    transparent 65%);
-  pointer-events:none;z-index:0;
-  opacity:0;
-  animation:atmBloom 1.1s ease 80ms forwards;
-}
-@keyframes atmBloom{
-  from{opacity:0;transform:scaleX(.8);}
-  to{opacity:1;transform:scaleX(1);}
-}
-
-.hero-inner{
-  padding:100px 0 0;
-  position:relative;z-index:1;
-}
-
-/* Status chips row */
-.status-row{
-  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
-  margin-bottom:36px;
-  opacity:0;animation:fadeUp .5s ease 180ms forwards;
-}
-.chip-live{
-  display:inline-flex;align-items:center;gap:7px;
-  font-family:var(--mono);font-size:.70rem;letter-spacing:.08em;
-  text-transform:uppercase;
-  border:1px solid rgba(74,222,128,.25);
-  border-radius:4px;padding:5px 10px;
-  color:rgba(74,222,128,.8);background:rgba(74,222,128,.06);
-}
-.chip-stat{
-  display:inline-flex;align-items:center;gap:0;
-  font-family:var(--mono);font-size:.70rem;letter-spacing:.06em;
-  text-transform:uppercase;
-  border:1px solid var(--border);
-  border-radius:4px;padding:5px 10px;
-  color:var(--text-3);background:transparent;
-}
-.chip-stat strong{color:var(--text-2);margin-left:5px;}
-.pulse-dot{
-  width:7px;height:7px;border-radius:50%;
-  background:var(--green);flex-shrink:0;
-  animation:pulseDot 2.6s infinite;
-}
-@keyframes pulseDot{
-  0%{box-shadow:0 0 0 0 rgba(74,222,128,.5);}
-  70%{box-shadow:0 0 0 8px rgba(74,222,128,0);}
-  100%{box-shadow:0 0 0 0 rgba(74,222,128,0);}
-}
-
-/* Massive editorial headline */
-h1{
-  font-family:var(--display);font-weight:700;
-  font-size:clamp(2.8rem,8vw,6.2rem);
-  line-height:1.00;letter-spacing:-.025em;
-  margin-bottom:28px;
-  opacity:0;animation:maskUp .7s cubic-bezier(.22,1,.36,1) 300ms forwards;
-}
-h1 .line{display:block;}
-h1 .accent{color:var(--cyan);}
-/* The em-dash separator before the accent word */
-h1 .dash{
-  display:inline-block;
-  width:clamp(1.8rem,3.5vw,3rem);height:3px;
-  background:var(--cyan);
-  vertical-align:middle;margin-right:clamp(.6rem,1.5vw,1.2rem);
-  opacity:.7;border-radius:2px;
-}
-@keyframes maskUp{
-  from{opacity:0;clip-path:inset(0 0 100% 0);}
-  to{opacity:1;clip-path:inset(0 0 0% 0);}
-}
-@keyframes fadeUp{
-  from{opacity:0;transform:translateY(12px);}
-  to{opacity:1;transform:translateY(0);}
-}
-
-.hero-sub{
-  font-size:1.1rem;color:var(--text-2);
-  max-width:52ch;margin-bottom:36px;font-weight:400;line-height:1.7;
-  opacity:0;animation:fadeUp .5s ease 620ms forwards;
-}
-.cta-row{
-  display:flex;flex-wrap:wrap;gap:12px;
-  opacity:0;animation:fadeUp .5s ease 720ms forwards;
-}
-.btn{
-  font-family:var(--mono);font-size:.8rem;letter-spacing:.04em;
-  padding:12px 22px;border-radius:5px;cursor:pointer;
-  display:inline-flex;align-items:center;gap:8px;
-  transition:transform .15s,background .15s,border-color .15s,color .15s,box-shadow .15s;
-}
-.btn-primary{
-  background:var(--cyan);color:#0A0D13;font-weight:600;
-}
-.btn-primary:hover{
-  background:#38E0F5;transform:translateY(-2px);
-  box-shadow:0 8px 24px rgba(34,211,238,.25);
-}
-.btn-outline{
-  border:1px solid var(--border-hi);color:var(--text-2);
-}
-.btn-outline:hover{
-  border-color:var(--cyan);color:var(--cyan);transform:translateY(-2px);
-}
-
-/* Sparkline terminal box */
-.spark-terminal{
-  margin-top:56px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-radius:8px;
-  overflow:hidden;
-  opacity:0;animation:fadeUp .5s ease 540ms forwards;
-}
-.spark-term-header{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:10px 14px;
-  border-bottom:1px solid var(--border);
-  background:var(--surface-hi);
-}
-.term-dots{display:flex;gap:5px;}
-.term-dot{width:9px;height:9px;border-radius:50%;background:var(--border-hi);}
-.term-label{
-  font-family:var(--mono);font-size:.65rem;letter-spacing:.10em;
-  text-transform:uppercase;color:var(--text-3);
-}
-.term-status{
-  font-family:var(--mono);font-size:.65rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--cyan);opacity:.7;
-}
-.spark-body{padding:12px 16px 8px;}
-.spark-svg{display:block;width:100%;overflow:visible;}
-.spark-area{fill:url(#sg);opacity:.12;}
-.spark-line{
-  fill:none;stroke:var(--cyan);stroke-width:1.5;
-  stroke-linecap:round;stroke-linejoin:round;opacity:.8;
-}
-.spark-end-dot{fill:var(--cyan);}
-
-
-/* ============================================================
-   METRICS PANELS
-   ============================================================ */
-.metrics-row{
-  display:grid;grid-template-columns:repeat(4,1fr);
-  gap:12px;padding:28px 0 72px;
-  opacity:0;animation:fadeUp .5s ease 900ms forwards;
-}
-.metric-panel{
-  border:1px solid var(--border);border-radius:8px;
-  padding:20px 22px;background:var(--surface);
-  transition:border-color .2s;
-}
-.metric-panel:hover{border-color:var(--border-hi);}
-.m-num{
-  font-family:var(--display);font-weight:700;
-  font-size:2.1rem;color:var(--text);line-height:1;
-  margin-bottom:8px;
-}
-.m-lbl{
-  font-family:var(--mono);font-size:.67rem;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--text-3);line-height:1.4;
-}
-
-
-/* ============================================================
-   SHARED SECTION STYLES
-   ============================================================ */
-section{padding:80px 0;}
-.sec-eyebrow{
-  font-family:var(--mono);font-size:.70rem;letter-spacing:.14em;
-  text-transform:uppercase;color:var(--cyan);
-  margin-bottom:14px;display:block;opacity:.85;
-}
-h2.sec-title{
-  font-family:var(--display);font-weight:700;
-  font-size:clamp(1.6rem,3.5vw,2.4rem);letter-spacing:-.02em;
-  color:var(--text);margin-bottom:0;
-}
-.sec-header{
-  display:flex;align-items:flex-end;justify-content:space-between;
-  margin-bottom:48px;gap:20px;
-}
-.sec-count{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--text-3);white-space:nowrap;
-  padding-bottom:4px;
-}
-
-
-/* ============================================================
-   PROFILE (#about)
-   ============================================================ */
-#about{background:var(--surface);}
-.about-grid{
-  display:grid;grid-template-columns:1fr 300px;
-  gap:72px;align-items:start;
-}
-.about-lead{
-  font-size:1.22rem;line-height:1.55;
-  font-family:var(--display);font-weight:500;
-  letter-spacing:-.01em;margin-bottom:24px;color:var(--text);
-}
-.about-lead strong{color:var(--cyan);}
-.about-body p{
-  color:var(--text-2);margin-bottom:16px;
-  font-size:.98rem;line-height:1.7;
-}
-.about-body p:last-child{margin-bottom:0;}
-
-/* Headshot */
-.headshot-wrap{
-  border-radius:8px;overflow:hidden;
-  aspect-ratio:3/4;width:100%;position:relative;
-}
-.headshot-wrap::after{
-  content:'';position:absolute;inset:0;
-  background:linear-gradient(to bottom,transparent 55%,rgba(17,19,24,.6) 100%);
-  pointer-events:none;
-}
-/*
-  SWAP: headshot image
-  Delete .headshot-placeholder and replace with:
-  <img src="images/headshot.webp"
-       alt="Ryan L. Burrell — Senior technology leader"
-       width="300" height="400" loading="eager"
-       class="headshot-img">
-*/
-.headshot-placeholder{
-  width:100%;height:100%;min-height:300px;
-  background:linear-gradient(160deg,#0D1520 0%,#0E3A4A 50%,#0B2B36 100%);
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;position:relative;overflow:hidden;
-}
-/* Subtle grid overlay on placeholder */
-.headshot-placeholder::before{
-  content:'';position:absolute;inset:0;
-  background-image:radial-gradient(circle,rgba(34,211,238,.06) 1px,transparent 1px);
-  background-size:24px 24px;
-}
-.headshot-initials{
-  font-family:var(--display);font-weight:700;
-  font-size:5rem;color:rgba(34,211,238,.55);
-  letter-spacing:-.02em;line-height:1;position:relative;z-index:1;
-}
-.headshot-sub{
-  font-family:var(--mono);font-size:.65rem;letter-spacing:.18em;
-  text-transform:uppercase;color:rgba(34,211,238,.3);
-  margin-top:12px;position:relative;z-index:1;
-}
-.headshot-img{
-  width:100%;height:100%;object-fit:cover;object-position:top center;
-  filter:grayscale(20%) sepia(10%) hue-rotate(160deg) saturate(1.1);
-}
-
-
-/* ============================================================
-   SELECTED WORK (#work)
-   ============================================================ */
-#work{background:var(--bg);}
-
-/* Scan-line on the divider below the section header */
-.work-divider{
-  position:relative;height:1px;
-  background:var(--border);margin-bottom:48px;overflow:visible;
-}
-.scan-line{
-  position:absolute;top:0;left:-100%;
-  width:100%;height:1px;
-  background:linear-gradient(90deg,transparent,var(--cyan),transparent);
-  opacity:0;
-}
-@keyframes scanSweep{
-  from{left:-100%;opacity:.95;}
-  to  {left:100%;opacity:0;}
-}
-.scan-line.sweep{animation:scanSweep .9s cubic-bezier(.22,1,.36,1) forwards;}
-
-/* Project cards — editorial numbered style */
-.proj-card{
-  border:1px solid var(--border);border-radius:10px;
-  background:var(--surface);
-  margin-bottom:16px;
-  transition:border-color .22s,box-shadow .22s;overflow:hidden;
-}
-.proj-card:hover{
-  border-color:var(--border-hi);
-  box-shadow:0 6px 48px rgba(0,0,0,.4);
-}
-.proj-card-top{
-  display:flex;align-items:center;justify-content:space-between;
-  padding:24px 28px 22px;
-  border-bottom:1px solid var(--border);
-}
-.proj-num{
-  font-family:var(--mono);font-size:2rem;font-weight:500;
-  color:var(--border-hi);letter-spacing:-.02em;line-height:1;
-}
-/* Status badges — three distinct visual styles */
-.badge{
-  display:inline-flex;align-items:center;gap:6px;
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
-  text-transform:uppercase;padding:6px 12px;border-radius:4px;
-  line-height:1;white-space:nowrap;
-}
-/* Delivered: solid green-tinted */
-.badge-live{
-  background:rgba(74,222,128,.10);
-  color:rgba(74,222,128,.9);
-  border:1px solid rgba(74,222,128,.22);
-}
-/* In development: amber, square corners feel "active" */
-.badge-dev{
-  background:rgba(251,191,36,.09);
-  color:rgba(251,191,36,.9);
-  border:1px solid rgba(251,191,36,.22);
-}
-/* Concept: violet, dashed — speculative / ethereal */
-.badge-concept{
-  background:rgba(167,139,250,.08);
-  color:rgba(167,139,250,.85);
-  border:1px dashed rgba(167,139,250,.28);
-}
-.badge-dot{
-  width:5px;height:5px;border-radius:50%;flex-shrink:0;
-}
-.badge-live    .badge-dot{background:var(--green);}
-.badge-dev     .badge-dot{background:var(--amber);}
-.badge-concept .badge-dot{background:var(--violet);opacity:.8;}
-
-.proj-card-body{padding:28px;}
-.proj-tag{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.07em;
-  text-transform:uppercase;color:var(--text-3);
-  margin-bottom:12px;display:block;
-}
-.proj-card h3{
-  font-family:var(--display);font-weight:700;
-  font-size:1.38rem;letter-spacing:-.015em;
-  color:var(--text);margin-bottom:6px;
-}
-.proj-role{
-  font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--cyan);opacity:.75;
-  margin-bottom:24px;display:block;
-}
-.pir{display:flex;flex-direction:column;gap:0;margin-bottom:24px;}
-.pir-row{
-  display:grid;grid-template-columns:88px 1fr;
-  gap:20px;padding:13px 0;
-  border-top:1px solid var(--border);
-}
-.pir-row:first-child{border-top:none;}
-.pir-k{
-  font-family:var(--mono);font-size:.70rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--cyan);
-  opacity:.7;padding-top:2px;
-}
-.pir-v{color:var(--text-2);font-size:.97rem;line-height:1.65;}
-.chip-row{display:flex;flex-wrap:wrap;gap:7px;}
-.chip{
-  font-family:var(--mono);font-size:.70rem;
-  color:var(--text-3);
-  border:1px solid var(--border);border-radius:4px;
-  padding:4px 9px;background:var(--surface-hi);
-  transition:color .15s,border-color .15s;
-}
-.chip:hover{color:var(--cyan);border-color:rgba(34,211,238,.3);}
-
-
-/* ============================================================
-   CREATIVE & DESIGN (#creative)
-   ============================================================ */
-#creative{background:var(--surface);}
-.creative-lead{
-  max-width:58ch;color:var(--text-2);
-  font-size:.98rem;line-height:1.7;
-  margin-bottom:44px;
-}
-.gallery-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:16px;
-}
-.gallery-tile{
-  border-radius:8px;overflow:hidden;
-  border:1px solid var(--border);
-  background:var(--surface-hi);cursor:pointer;
-  transition:border-color .22s,transform .25s ease,box-shadow .25s ease;
-}
-.gallery-tile:hover{
-  border-color:var(--cyan);
-  transform:translateY(-4px);
-  box-shadow:0 12px 40px rgba(0,0,0,.5),0 0 0 1px rgba(34,211,238,.12);
-}
-.tile-img-wrap{
-  aspect-ratio:4/3;overflow:hidden;position:relative;
-}
-.tile-img{
-  width:100%;height:100%;object-fit:cover;
-  transition:transform .35s ease;display:block;
-}
-.gallery-tile:hover .tile-img{transform:scale(1.04);}
-
-/* Placeholder blocks */
-.tile-placeholder{
-  width:100%;height:100%;
-  display:flex;align-items:center;justify-content:center;
-}
-.tile-ph-1{background:linear-gradient(135deg,#0D1520 0%,#0E3A4A 60%,#124554 100%);}
-.tile-ph-2{background:linear-gradient(135deg,#120D20 0%,#1B1040 60%,#221552 100%);}
-.tile-ph-3{background:linear-gradient(135deg,#0D1A18 0%,#0E2E2A 60%,#123530 100%);}
-.tile-ph-icon{
-  font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;
-  text-transform:uppercase;color:rgba(229,232,244,.2);
-}
-
-/* Hover caption */
-.tile-overlay{
-  position:absolute;inset:0;
-  background:linear-gradient(to top,rgba(17,19,24,.92) 0%,transparent 55%);
-  opacity:0;transition:opacity .22s ease;
-  display:flex;align-items:flex-end;padding:14px;
-}
-.gallery-tile:hover .tile-overlay{opacity:1;}
-.tile-overlay-text{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.06em;
-  text-transform:uppercase;color:var(--cyan);opacity:.85;
-}
-
-.tile-body{padding:16px 18px 18px;}
-.tile-title{
-  font-family:var(--display);font-weight:600;
-  font-size:.95rem;color:var(--text);margin-bottom:5px;
-}
-.tile-desc{
-  font-size:.85rem;color:var(--text-2);
-  margin-bottom:10px;line-height:1.55;
-}
-.tile-tags{display:flex;flex-wrap:wrap;gap:5px;}
-.tile-tag{
-  font-family:var(--mono);font-size:.64rem;letter-spacing:.04em;
-  color:var(--cyan);opacity:.7;
-  border:1px solid rgba(34,211,238,.18);
-  border-radius:3px;padding:2px 7px;background:var(--cyan-dim);
-}
-
-
-/* ============================================================
-   LIGHTBOX
-   ============================================================ */
-.lightbox{
-  position:fixed;inset:0;z-index:200;
-  background:rgba(10,11,15,.94);
-  backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);
-  display:flex;align-items:center;justify-content:center;
-  opacity:0;pointer-events:none;
-  transition:opacity .22s ease;
-}
-.lightbox.open{opacity:1;pointer-events:all;}
-.lb-inner{
-  position:relative;width:90%;max-width:820px;
-  background:var(--surface);
-  border:1px solid var(--border-hi);
-  border-radius:12px;overflow:hidden;
-  transform:scale(.94);
-  transition:transform .26s cubic-bezier(.22,1,.36,1);
-}
-.lightbox.open .lb-inner{transform:scale(1);}
-.lb-img-wrap{
-  overflow:hidden;max-height:55vh;
-  display:flex;align-items:center;justify-content:center;
-}
-.lb-img{width:100%;display:block;object-fit:cover;}
-.lb-placeholder{
-  width:100%;min-height:260px;
-  display:flex;align-items:center;justify-content:center;
-}
-.lb-body{padding:22px 26px 26px;}
-.lb-title{
-  font-family:var(--display);font-weight:600;
-  font-size:1.15rem;color:var(--text);margin-bottom:7px;
-}
-.lb-desc{font-size:.92rem;color:var(--text-2);line-height:1.65;}
-.lb-close{
-  position:absolute;top:12px;right:12px;
-  width:34px;height:34px;border-radius:50%;border:none;cursor:pointer;
-  background:rgba(38,43,60,.8);color:var(--text-2);
-  display:flex;align-items:center;justify-content:center;
-  font-family:var(--mono);font-size:.95rem;
-  transition:background .15s,color .15s;z-index:1;
-}
-.lb-close:hover{background:var(--border-hi);color:var(--text);}
-
-
-/* ============================================================
-   CAPABILITIES (#capabilities)
-   ============================================================ */
-#capabilities{background:var(--bg);}
-.cap-grid{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:12px;
-}
-.cap{
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-top:2px solid var(--cyan);
-  border-radius:8px;
-  padding:26px 24px;
-  position:relative;overflow:hidden;
-  transition:border-color .2s,box-shadow .2s;
-}
-.cap:hover{
-  border-color:var(--cyan);
-  border-top-color:var(--cyan);
-  box-shadow:0 0 0 1px rgba(34,211,238,.12);
-}
-/* Large faded number as decorative bg element */
-.cap::before{
-  content:attr(data-num);
-  position:absolute;top:-8px;right:10px;
-  font-family:var(--mono);font-weight:500;
-  font-size:4.5rem;line-height:1;
-  color:var(--border);letter-spacing:-.04em;
-  pointer-events:none;user-select:none;
-}
-.cap-eye{
-  font-family:var(--mono);font-size:.68rem;letter-spacing:.10em;
-  text-transform:uppercase;color:var(--cyan);opacity:.6;
-  margin-bottom:14px;display:block;
-}
-.cap h4{
-  font-family:var(--display);font-weight:600;
-  font-size:1rem;color:var(--text);margin-bottom:8px;
-}
-.cap p{font-size:.88rem;color:var(--text-2);line-height:1.6;}
-
-
-/* ============================================================
-   EXPERIENCE (#experience)
-   ============================================================ */
-#experience{background:var(--surface);}
-.xp-list{
-  display:flex;flex-direction:column;
-  padding-left:20px;
-  border-left:1px solid var(--border);
-  margin-top:40px;
-}
-.xp-item{
-  position:relative;padding:0 0 36px 28px;
-}
-.xp-item:last-child{padding-bottom:0;}
-/* Timeline dot */
-.xp-item::before{
-  content:'';
-  position:absolute;left:-5px;top:6px;
-  width:9px;height:9px;border-radius:50%;
-  background:var(--bg);
-  border:1px solid var(--border-hi);
-  transition:border-color .2s;
-}
-.xp-item:hover::before{border-color:var(--cyan);}
-.xp-top{
-  display:flex;align-items:baseline;
-  justify-content:space-between;flex-wrap:wrap;gap:8px;
-  margin-bottom:4px;
-}
-.xp-role{
-  font-family:var(--display);font-weight:600;
-  font-size:1rem;color:var(--text);
-}
-.xp-org{
-  font-family:var(--mono);font-size:.75rem;letter-spacing:.04em;
-  color:var(--cyan);opacity:.75;
-}
-.xp-sub{
-  font-size:.88rem;color:var(--text-2);margin-bottom:4px;
-}
-.xp-yr{
-  font-family:var(--mono);font-size:.72rem;letter-spacing:.04em;
-  color:var(--text-3);
-}
-
-
-/* ============================================================
-   FOOTER / CONTACT (#contact)
-   ============================================================ */
-footer{background:var(--foot);}
-.foot-inner{padding:80px 0 60px;}
-.foot-top{margin-bottom:48px;}
-.foot-name{
-  font-family:var(--display);font-weight:700;
-  font-size:clamp(1.8rem,4vw,2.8rem);letter-spacing:-.02em;
-  color:var(--text);margin-bottom:8px;
-}
-.foot-name em{font-style:normal;color:var(--cyan);}
-.foot-sub{
-  font-family:var(--mono);font-size:.76rem;letter-spacing:.08em;
-  text-transform:uppercase;color:var(--text-3);margin-bottom:28px;
-}
-.foot-lead{color:var(--text-2);max-width:46ch;margin-bottom:32px;line-height:1.7;}
-.foot-links{display:flex;flex-wrap:wrap;gap:12px;}
-.foot-divider{
-  height:1px;background:var(--border);
-  margin:44px 0 24px;
-}
-.foot-meta{
-  display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
-  font-family:var(--mono);font-size:.70rem;letter-spacing:.04em;
-  color:var(--text-3);
-}
-
-
-/* ============================================================
-   SCROLL REVEALS
-   ============================================================ */
-.reveal{
-  opacity:0;transform:translateY(16px);
-  transition:opacity .6s cubic-bezier(.22,1,.36,1),
-              transform .6s cubic-bezier(.22,1,.36,1);
-}
-.reveal.in{opacity:1;transform:none;}
-
-/* Gallery cascade */
-.gallery-grid .gallery-tile{
-  opacity:0;transform:translateY(20px);
-  transition:opacity .55s cubic-bezier(.22,1,.36,1),
-              transform .55s cubic-bezier(.22,1,.36,1);
-}
-.gallery-grid.cascaded .gallery-tile:nth-child(1){opacity:1;transform:none;transition-delay:0ms;}
-.gallery-grid.cascaded .gallery-tile:nth-child(2){opacity:1;transform:none;transition-delay:80ms;}
-.gallery-grid.cascaded .gallery-tile:nth-child(3){opacity:1;transform:none;transition-delay:160ms;}
-
-
-/* ============================================================
-   RESPONSIVE
-   ============================================================ */
-@media(max-width:940px){
-  .about-grid{grid-template-columns:1fr;gap:44px;}
-  .headshot-wrap{max-width:260px;margin:0 auto;aspect-ratio:1/1;}
-  .cap-grid{grid-template-columns:repeat(2,1fr);}
-}
-@media(max-width:860px){
-  .metrics-row{grid-template-columns:repeat(2,1fr);}
-  .gallery-grid{grid-template-columns:repeat(2,1fr);}
-  .sec-header{flex-direction:column;align-items:flex-start;gap:4px;}
-}
-@media(max-width:640px){
-  .nav-links{display:none;}
-  .metrics-row{grid-template-columns:1fr 1fr;}
-  .pir-row{grid-template-columns:1fr;gap:2px;}
-  .gallery-grid{grid-template-columns:1fr;}
-  .cap-grid{grid-template-columns:1fr;}
-  .foot-meta{flex-direction:column;}
-  .proj-card-top{flex-direction:column;gap:12px;align-items:flex-start;}
-  h1{font-size:clamp(2.4rem,9vw,3.2rem);}
-}
-
-
-/* ============================================================
-   PREFERS-REDUCED-MOTION — mandatory: all motion disabled
-   ============================================================ */
-@media(prefers-reduced-motion:reduce){
-  *,*::before,*::after{
-    animation:none!important;
-    transition:none!important;
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ryan L. Burrell | Senior IT Manager in the Greater Toronto Area</title>
+  <meta name="description" content="Senior IT leader in the Greater Toronto Area with 20+ years in IT operations, service delivery, application support, major incident management, and AI-enabled modernization.">
+  <meta name="theme-color" content="#f7f5f0">
+  <link rel="canonical" href="https://ryanburrell.github.io/">
+  <link rel="icon" type="image/png" href="images/favicon.png">
+  <meta property="og:type" content="profile">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:site_name" content="Ryan L. Burrell">
+  <meta property="og:title" content="Ryan L. Burrell | Senior IT Leadership">
+  <meta property="og:description" content="Reliable systems. Stronger teams. Measurable service outcomes.">
+  <meta property="og:url" content="https://ryanburrell.github.io/">
+  <meta property="og:image" content="https://ryanburrell.github.io/images/ryan-burrell-social.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Ryan L. Burrell — Senior IT Manager. Reliable systems, stronger teams, measurable service outcomes.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Ryan L. Burrell | Senior IT Leadership">
+  <meta name="twitter:description" content="Reliable systems. Stronger teams. Measurable service outcomes.">
+  <meta name="twitter:image" content="https://ryanburrell.github.io/images/ryan-burrell-social.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ryan L. Burrell",
+    "url": "https://ryanburrell.github.io/",
+    "jobTitle": "Senior IT Manager — Service Delivery & Application Support",
+    "telephone": "+1-437-784-7827",
+    "email": "mailto:ryanlb@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Greater Toronto Area",
+      "addressRegion": "Ontario",
+      "addressCountry": "CA"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "University of the West Indies" }
+    ],
+    "sameAs": ["https://www.linkedin.com/in/ryan-burrell"]
   }
-  html{scroll-behavior:auto;}
-  .reveal{opacity:1!important;transform:none!important;}
-  .status-row,h1,.hero-sub,.cta-row,
-  .spark-terminal,.metrics-row,
-  .hero-atmosphere{opacity:1!important;transform:none!important;}
-  .gallery-grid .gallery-tile{opacity:1!important;transform:none!important;}
-  .scan-line{display:none!important;}
-}
+  </script>
+  <style>
+    /* ==========================================================
+       CONTENT MAINTENANCE
+       Contact, social and resume links: search "CONTACT LINKS".
+       Project statuses and credentials: their named sections below.
+       Career dates and metrics: Experience and Credibility sections.
+       Full update notes: CONTENT_MAINTENANCE.md.
+       ========================================================== */
+    :root {
+      --paper: #f7f5f0;
+      --surface: #fffefb;
+      --ink: #17212b;
+      --muted: #52606b;
+      --navy: #17324d;
+      --navy-deep: #10283e;
+      --teal: #0b6b64;
+      --teal-soft: #dceeea;
+      --sand: #e9e3d8;
+      --sand-soft: #f2ede4;
+      --amber-soft: #f5e9ca;
+      --amber-ink: #6c4a0b;
+      --border: #d8d3c9;
+      --focus: #0b6b64;
+      --font-display: "Aptos Display", "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-body: Inter, "Aptos", "Segoe UI", Helvetica, Arial, sans-serif;
+      --font-mono: "Cascadia Mono", Consolas, monospace;
+      --step--1: clamp(.82rem, .79rem + .12vw, .9rem);
+      --step-0: clamp(1rem, .96rem + .16vw, 1.08rem);
+      --step-1: clamp(1.2rem, 1.12rem + .35vw, 1.42rem);
+      --step-2: clamp(1.48rem, 1.29rem + .75vw, 1.95rem);
+      --step-3: clamp(1.9rem, 1.57rem + 1.25vw, 2.7rem);
+      --step-4: clamp(2.6rem, 2rem + 2.4vw, 4.2rem);
+      --space-1: .25rem;
+      --space-2: .5rem;
+      --space-3: .75rem;
+      --space-4: 1rem;
+      --space-5: 1.5rem;
+      --space-6: 2rem;
+      --space-7: 3rem;
+      --space-8: 4rem;
+      --space-9: 6rem;
+      --radius-sm: .55rem;
+      --radius: .9rem;
+      --radius-lg: 1.4rem;
+      --max: 76rem;
+      --measure: 45rem;
+      --header-height: 4.5rem;
+      --motion: 180ms ease;
+    }
 
+    *, *::before, *::after { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: var(--step-0);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      overflow-wrap: break-word;
+    }
+    img, svg { display: block; max-width: 100%; }
+    a { color: var(--navy); text-underline-offset: .2em; text-decoration-thickness: .08em; }
+    a:hover { color: var(--teal); }
+    button, summary, a { -webkit-tap-highlight-color: transparent; }
+    :focus-visible { outline: .2rem solid var(--focus); outline-offset: .2rem; border-radius: .2rem; }
+    ::selection { background: var(--teal-soft); color: var(--navy-deep); }
+    section[id] { scroll-margin-top: calc(var(--header-height) + 1.25rem); }
 
-/* ============================================================
-   FOCUS STYLES — WCAG 2.1 AA
-   ============================================================ */
-a:focus-visible,.btn:focus-visible,
-button:focus-visible,.gallery-tile:focus-visible,
-.lb-close:focus-visible{
-  outline:2px solid var(--cyan);
-  outline-offset:3px;border-radius:4px;
-}
-</style>
+    .skip-link {
+      position: fixed;
+      inset: .5rem auto auto .5rem;
+      z-index: 1000;
+      transform: translateY(-160%);
+      padding: .7rem 1rem;
+      border-radius: var(--radius-sm);
+      background: var(--navy);
+      color: #fff;
+      font-weight: 700;
+    }
+    .skip-link:focus { transform: translateY(0); }
+    .container { width: min(100% - 2rem, var(--max)); margin-inline: auto; }
+    .measure { max-width: var(--measure); }
+    .section { padding-block: clamp(4.25rem, 8vw, 7rem); }
+    .section-rule { border-top: 1px solid var(--border); }
+    .section-head { display: grid; gap: .65rem; margin-bottom: clamp(2rem, 4vw, 3.25rem); max-width: 49rem; }
+    .eyebrow {
+      margin: 0;
+      color: var(--teal);
+      font-size: var(--step--1);
+      font-weight: 800;
+      letter-spacing: .11em;
+      line-height: 1.35;
+      text-transform: uppercase;
+    }
+    h1, h2, h3, h4 { margin: 0; color: var(--navy-deep); font-family: var(--font-display); line-height: 1.08; text-wrap: balance; }
+    h1 { font-size: var(--step-4); letter-spacing: -.045em; }
+    h2 { font-size: var(--step-3); letter-spacing: -.035em; }
+    h3 { font-size: var(--step-2); letter-spacing: -.02em; }
+    h4 { font-size: var(--step-1); }
+    p { margin: 0; }
+    .lead { color: var(--muted); font-size: var(--step-1); line-height: 1.55; }
+    .section-intro { color: var(--muted); max-width: 44rem; }
+    .icon { width: 1.2rem; height: 1.2rem; flex: 0 0 auto; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
+
+    /* Header and navigation */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      min-height: var(--header-height);
+      border-bottom: 1px solid rgba(216, 211, 201, .9);
+      background: rgba(247, 245, 240, .94);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+    }
+    .nav-shell { min-height: var(--header-height); display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
+    .wordmark { display: inline-flex; align-items: center; min-height: 2.75rem; color: var(--navy-deep); font-family: var(--font-display); font-weight: 800; text-decoration: none; letter-spacing: -.02em; }
+    .wordmark-mark { color: var(--teal); }
+    .desktop-nav { display: none; }
+    .nav-menu { position: relative; }
+    .nav-menu summary {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .55rem .8rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      background: var(--surface);
+      color: var(--navy-deep);
+      cursor: pointer;
+      font-weight: 750;
+      list-style: none;
+    }
+    .nav-menu summary::-webkit-details-marker { display: none; }
+    .nav-menu[open] summary { border-color: var(--navy); }
+    .mobile-links {
+      position: absolute;
+      top: calc(100% + .6rem);
+      right: 0;
+      width: min(18rem, calc(100vw - 2rem));
+      display: grid;
+      gap: .2rem;
+      margin: 0;
+      padding: .65rem;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: 0 1rem 2rem rgba(23, 33, 43, .1);
+      list-style: none;
+    }
+    .mobile-links a { display: flex; align-items: center; min-height: 2.75rem; padding: .45rem .65rem; border-radius: .45rem; color: var(--ink); font-weight: 650; text-decoration: none; }
+    .mobile-links a:hover { background: var(--sand-soft); }
+
+    /* Buttons */
+    .actions { display: flex; flex-wrap: wrap; gap: .75rem; align-items: center; }
+    .button {
+      min-height: 2.75rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: .55rem;
+      padding: .68rem 1rem;
+      border: 1px solid var(--navy);
+      border-radius: .55rem;
+      color: var(--navy);
+      font-weight: 780;
+      line-height: 1.2;
+      text-align: center;
+      text-decoration: none;
+      transition: background var(--motion), border-color var(--motion), color var(--motion);
+    }
+    .button:hover { background: var(--sand-soft); color: var(--navy-deep); }
+    .button-primary { background: var(--navy); color: #fff; }
+    .button-primary:hover { background: var(--teal); border-color: var(--teal); color: #fff; }
+    .button-quiet { border-color: transparent; }
+
+    /* Hero */
+    .hero { padding-block: clamp(3.5rem, 8vw, 6.5rem) clamp(3.5rem, 7vw, 5.75rem); }
+    .hero-grid { display: grid; gap: 2.75rem; align-items: center; }
+    .hero-copy { display: grid; gap: 1.45rem; }
+    .hero-copy h1 { max-width: 13ch; }
+    .hero-copy .lead { max-width: 40rem; }
+    .availability { display: flex; flex-wrap: wrap; gap: .5rem 1.25rem; color: var(--muted); font-size: var(--step--1); font-weight: 650; }
+    .availability span { display: inline-flex; align-items: center; gap: .45rem; }
+    .portrait-placeholder {
+      position: relative;
+      min-height: clamp(20rem, 54vw, 31rem);
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--sand-soft);
+      isolation: isolate;
+    }
+    .portrait-placeholder::before, .portrait-placeholder::after { content: ""; position: absolute; border-radius: 50%; z-index: -1; }
+    .portrait-placeholder::before { width: 20rem; height: 20rem; top: -5rem; right: -6rem; background: var(--teal-soft); }
+    .portrait-placeholder::after { width: 16rem; height: 16rem; left: -6rem; bottom: -6rem; border: 2rem solid var(--sand); }
+    .monogram {
+      width: min(15rem, 58vw);
+      aspect-ratio: 1;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--navy);
+      border-radius: 50%;
+      background: var(--navy);
+      box-shadow: 0 0 0 .8rem var(--surface), 0 0 0 .9rem var(--border);
+      color: #fff;
+      font-family: var(--font-display);
+      font-size: clamp(3.5rem, 11vw, 5.7rem);
+      font-weight: 800;
+      letter-spacing: -.09em;
+    }
+    .portrait-caption { position: absolute; right: 1rem; bottom: 1rem; margin: 0; color: var(--muted); font-family: var(--font-mono); font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; }
+
+    /* Metrics */
+    .metrics { background: var(--navy-deep); color: #fff; }
+    .metrics-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .metric { min-width: 0; padding: 1.5rem 1rem; border-right: 1px solid rgba(255, 255, 255, .16); border-bottom: 1px solid rgba(255, 255, 255, .16); }
+    .metric:nth-child(2n) { border-right: 0; }
+    .metric:nth-last-child(-n + 2) { border-bottom: 0; }
+    .metric-value { display: block; color: #fff; font-family: var(--font-display); font-size: clamp(1.75rem, 7vw, 2.75rem); font-weight: 800; letter-spacing: -.04em; line-height: 1; }
+    .metric-label { display: block; margin-top: .55rem; color: #d9e1e8; font-size: var(--step--1); line-height: 1.4; }
+
+    /* Projects */
+    .project-list { display: grid; gap: 1.25rem; }
+    .project-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); overflow: clip; }
+    .project-summary { display: grid; gap: 1.25rem; padding: clamp(1.4rem, 4vw, 2.25rem); }
+    .project-topline { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .85rem; }
+    .project-number { color: var(--muted); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; }
+    .status { display: inline-flex; align-items: center; gap: .4rem; width: fit-content; min-height: 1.8rem; padding: .28rem .65rem; border-radius: 999px; font-size: .78rem; font-weight: 800; line-height: 1.1; }
+    .status::before { content: ""; width: .45rem; height: .45rem; border-radius: 50%; background: currentColor; }
+    .status-delivered { background: var(--teal-soft); color: #07584f; }
+    .status-development { background: var(--amber-soft); color: var(--amber-ink); }
+    .project-summary > p { color: var(--muted); max-width: 49rem; }
+    .project-meta { display: grid; gap: .3rem; padding-top: .2rem; }
+    .meta-label { color: var(--muted); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .tags { display: flex; flex-wrap: wrap; gap: .45rem; margin: 0; padding: 0; list-style: none; }
+    .tags li { padding: .25rem .55rem; border: 1px solid var(--border); border-radius: 999px; background: var(--paper); color: var(--navy-deep); font-family: var(--font-mono); font-size: .72rem; }
+    .project-details { border-top: 1px solid var(--border); background: var(--sand-soft); }
+    .project-details summary { min-height: 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem clamp(1.4rem, 4vw, 2.25rem); color: var(--navy); cursor: pointer; font-weight: 800; list-style: none; }
+    .project-details summary::-webkit-details-marker { display: none; }
+    .project-details summary::after { content: "+"; display: grid; place-items: center; width: 1.8rem; height: 1.8rem; border: 1px solid var(--border); border-radius: 50%; background: var(--surface); font-size: 1.2rem; font-weight: 500; }
+    .project-details[open] summary::after { content: "−"; }
+    .case-study { display: grid; gap: 1.5rem; padding: .25rem clamp(1.4rem, 4vw, 2.25rem) clamp(1.65rem, 4vw, 2.4rem); }
+    .case-grid { display: grid; gap: 1.4rem; }
+    .case-block { display: grid; gap: .45rem; }
+    .case-block h4 { color: var(--navy); font-size: 1rem; letter-spacing: 0; }
+    .case-block p, .case-block li { color: var(--muted); }
+    .case-block ul { margin: 0; padding-left: 1.2rem; }
+    .case-cta { display: flex; flex-wrap: wrap; align-items: center; gap: .75rem 1rem; padding-top: 1rem; border-top: 1px solid var(--border); }
+    .case-cta p { color: var(--ink); font-weight: 700; }
+
+    /* Profile and capabilities */
+    .profile-grid { display: grid; gap: 2.5rem; }
+    .profile-copy { display: grid; gap: 1.15rem; color: var(--muted); }
+    .capability-grid { display: grid; gap: .8rem; }
+    .capability { display: grid; grid-template-columns: auto 1fr; gap: .85rem; padding: 1.1rem; border-top: 1px solid var(--border); }
+    .capability-icon { width: 2.25rem; height: 2.25rem; display: grid; place-items: center; border-radius: .55rem; background: var(--teal-soft); color: var(--teal); }
+    .capability-copy { display: grid; gap: .2rem; }
+    .capability-copy h3 { font-size: 1.05rem; letter-spacing: 0; }
+    .capability-copy p { color: var(--muted); font-size: var(--step--1); }
+
+    /* Experience */
+    .experience-list { margin: 0; padding: 0; list-style: none; }
+    .experience-item { position: relative; display: grid; gap: .5rem; padding: 0 0 2.4rem 1.6rem; border-left: 1px solid var(--border); }
+    .experience-item:last-child { padding-bottom: 0; }
+    .experience-item::before { content: ""; position: absolute; top: .35rem; left: -.38rem; width: .68rem; height: .68rem; border: .18rem solid var(--paper); border-radius: 50%; background: var(--teal); box-shadow: 0 0 0 1px var(--teal); }
+    .experience-date { color: var(--teal); font-family: var(--font-mono); font-size: .78rem; font-weight: 700; letter-spacing: .04em; }
+    .experience-role { font-size: var(--step-1); letter-spacing: -.015em; }
+    .experience-org { color: var(--navy); font-weight: 750; }
+    .experience-item p { color: var(--muted); max-width: 49rem; }
+
+    /* Credentials */
+    .credentials { background: var(--sand-soft); }
+    .credential-layout { display: grid; gap: 2.5rem; }
+    .credential-group { display: grid; gap: 1rem; }
+    .credential-group-title { display: flex; align-items: center; gap: .65rem; font-size: var(--step-1); }
+    .credential-list { display: grid; gap: .75rem; }
+    .credential-card { display: grid; grid-template-columns: auto 1fr; gap: .85rem; padding: 1.1rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
+    .credential-card .icon { margin-top: .15rem; color: var(--teal); }
+    .credential-card h3 { font-size: 1rem; letter-spacing: 0; line-height: 1.35; }
+    .credential-card p { color: var(--muted); font-size: var(--step--1); }
+
+    /* Contact and footer */
+    .contact-card { position: relative; overflow: hidden; display: grid; gap: 1.6rem; padding: clamp(1.6rem, 5vw, 3.5rem); border-radius: var(--radius-lg); background: var(--navy-deep); color: #fff; }
+    .contact-card::after { content: "RLB"; position: absolute; right: -1rem; bottom: -3rem; color: rgba(255,255,255,.045); font-family: var(--font-display); font-size: clamp(7rem, 22vw, 15rem); font-weight: 800; letter-spacing: -.1em; line-height: 1; pointer-events: none; }
+    .contact-card > * { position: relative; z-index: 1; }
+    .contact-card h2 { color: #fff; max-width: 15ch; }
+    .contact-card .eyebrow { color: #a9e0d9; }
+    .contact-card .lead { color: #d9e1e8; max-width: 47rem; }
+    .contact-card .button { border-color: #fff; color: #fff; }
+    .contact-card .button-primary { background: #fff; color: var(--navy-deep); }
+    .contact-card .button-primary:hover { background: var(--teal-soft); border-color: var(--teal-soft); color: var(--navy-deep); }
+    .contact-links { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; }
+    .contact-links a { min-height: 2.75rem; display: inline-flex; align-items: center; gap: .5rem; color: #fff; font-weight: 700; }
+    .site-footer { padding-block: 2rem; border-top: 1px solid var(--border); }
+    .footer-grid { display: grid; gap: 1rem; }
+    .footer-name { font-weight: 800; }
+    .footer-meta { color: var(--muted); font-size: var(--step--1); }
+    .footer-links { display: flex; flex-wrap: wrap; gap: .55rem 1.15rem; margin: 0; padding: 0; list-style: none; }
+    .footer-links a { min-height: 2rem; display: inline-flex; align-items: center; }
+
+    @media (min-width: 48rem) {
+      .container { width: min(100% - 3rem, var(--max)); }
+      .hero { padding-block: 3.5rem 3.25rem; }
+      .hero-copy h1 { max-width: 16ch; font-size: clamp(3rem, 4.6vw, 3.8rem); }
+      .desktop-nav { display: flex; align-items: center; gap: .2rem; }
+      .desktop-nav ul { display: flex; align-items: center; gap: .15rem; margin: 0; padding: 0; list-style: none; }
+      .desktop-nav a { min-height: 2.75rem; display: inline-flex; align-items: center; padding-inline: .65rem; color: var(--ink); font-size: .9rem; font-weight: 700; text-decoration: none; }
+      .desktop-nav a:hover { color: var(--teal); }
+      .desktop-nav .button { margin-left: .4rem; padding-inline: .85rem; color: var(--navy); }
+      .nav-menu { display: none; }
+      .hero-grid { grid-template-columns: minmax(0, 7fr) minmax(17rem, 5fr); gap: clamp(2.5rem, 6vw, 5.5rem); }
+      .portrait-placeholder { min-height: 28rem; }
+      .metrics-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+      .metric { padding: 1.8rem; border-bottom: 0; }
+      .metric:nth-child(2n) { border-right: 1px solid rgba(255, 255, 255, .16); }
+      .metric:last-child { border-right: 0; }
+      .project-summary { grid-template-columns: minmax(0, 3fr) minmax(13rem, 1fr); }
+      .project-summary .project-topline, .project-summary h3, .project-summary > p { grid-column: 1; }
+      .project-summary .project-meta { grid-column: 2; grid-row: 1 / span 3; align-self: start; padding-left: 1.25rem; border-left: 1px solid var(--border); }
+      .case-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.7rem 2.5rem; }
+      .profile-grid { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(3rem, 7vw, 6rem); align-items: start; }
+      .capability-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .credential-layout { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2rem; }
+      .footer-grid { grid-template-columns: minmax(0, 1fr) auto; align-items: end; }
+      .footer-links { justify-content: flex-end; }
+    }
+
+    @media (min-width: 64rem) {
+      .desktop-nav ul { gap: .45rem; }
+      .desktop-nav a { padding-inline: .75rem; }
+      .contact-card { grid-template-columns: minmax(0, 7fr) minmax(18rem, 5fr); align-items: end; }
+      .contact-card .actions { justify-content: flex-end; }
+      .contact-links { grid-column: 1 / -1; }
+    }
+
+    @media (max-width: 22rem) {
+      .container { width: min(100% - 1.25rem, var(--max)); }
+      .actions .button { width: 100%; }
+      .metrics-grid { grid-template-columns: 1fr; }
+      .metric { border-right: 0; border-bottom: 1px solid rgba(255, 255, 255, .16); }
+      .metric:nth-last-child(-n + 2) { border-bottom: 1px solid rgba(255, 255, 255, .16); }
+      .metric:last-child { border-bottom: 0; }
+      .portrait-caption { display: none; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; animation-iteration-count: 1 !important; }
+    }
+
+    @media print {
+      .site-header, .skip-link, .actions, .contact-card::after { display: none !important; }
+      body { background: #fff; color: #000; font-size: 11pt; }
+      .section { padding-block: 1.5rem; }
+      .project-details > * { display: block; }
+      .project-details summary { display: none; }
+      .project-card, .credential-card { break-inside: avoid; }
+    }
+  </style>
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-<!-- ============================================================
-     LIGHTBOX
-     ============================================================ -->
-<div class="lightbox" id="lightbox" role="dialog" aria-modal="true"
-     aria-labelledby="lb-title" aria-hidden="true">
-  <div class="lb-inner" id="lb-inner">
-    <button class="lb-close" id="lb-close" aria-label="Close lightbox">&#x2715;</button>
-    <div class="lb-img-wrap" id="lb-img-wrap"></div>
-    <div class="lb-body">
-      <div class="lb-title" id="lb-title"></div>
-      <div class="lb-desc"  id="lb-desc"></div>
+  <svg class="sr-only" aria-hidden="true" focusable="false">
+    <symbol id="icon-map-pin" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+    <symbol id="icon-briefcase" viewBox="0 0 24 24"><rect width="20" height="14" x="2" y="7" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16M2 12h20"/></symbol>
+    <symbol id="icon-download" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></symbol>
+    <symbol id="icon-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="icon-users" viewBox="0 0 24 24"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M9 11a4 4 0 1 0 0-8M22 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></symbol>
+    <symbol id="icon-layers" viewBox="0 0 24 24"><path d="m12 2 10 5-10 5L2 7l10-5ZM2 17l10 5 10-5M2 12l10 5 10-5"/></symbol>
+    <symbol id="icon-check" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4 12 14.01l-3-3"/></symbol>
+    <symbol id="icon-chart" viewBox="0 0 24 24"><path d="M3 3v18h18M7 16l4-5 4 3 5-7"/></symbol>
+    <symbol id="icon-award" viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></symbol>
+    <symbol id="icon-graduation" viewBox="0 0 24 24"><path d="M22 10 12 5 2 10l10 5 10-5Z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></symbol>
+    <symbol id="icon-mail" viewBox="0 0 24 24"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-10 6L2 7"/></symbol>
+    <symbol id="icon-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2.12 4.18 2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.12.9.34 1.78.65 2.62a2 2 0 0 1-.45 2.11L8.04 9.72a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.84.31 1.72.53 2.62.65A2 2 0 0 1 22 16.92Z"/></symbol>
+    <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16"/></symbol>
+  </svg>
+
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="wordmark" href="#top" aria-label="Ryan L. Burrell, back to top">Ryan L. Burrell<span class="wordmark-mark">.</span></a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#profile">Profile</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#credentials">Credentials</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <a class="button" href="Ryan_Burrell_Resume_2026.pdf" download><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>Résumé</a>
+      </nav>
+      <details class="nav-menu">
+        <summary><svg class="icon" aria-hidden="true"><use href="#icon-menu"/></svg>Menu</summary>
+        <nav aria-label="Mobile navigation">
+          <ul class="mobile-links">
+            <li><a href="#work">Work</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#credentials">Credentials</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="Ryan_Burrell_Resume_2026.pdf" download>Download résumé</a></li>
+          </ul>
+        </nav>
+      </details>
     </div>
-  </div>
-</div>
+  </header>
 
+  <main id="main-content">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Greater Toronto Area · Senior IT Leadership</p>
+          <h1 id="hero-title">Reliable systems. Stronger teams. Measurable service outcomes.</h1>
+          <p class="lead">I lead IT operations, service delivery, and mission-critical application support teams—combining 20+ years of technical depth with a decade of people leadership and practical AI-enabled modernization.</p>
+          <div class="availability" aria-label="Location and availability">
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>Greater Toronto Area, Ontario</span>
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-briefcase"/></svg>GTA and remote across North America</span>
+          </div>
+          <div class="actions">
+            <a class="button button-primary" href="#work">View selected work<svg class="icon" aria-hidden="true"><use href="#icon-arrow"/></svg></a>
+            <a class="button" href="Ryan_Burrell_Resume_2026.pdf" download><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>Download résumé</a>
+            <a class="button button-quiet" href="https://www.linkedin.com/in/ryan-burrell" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+          </div>
+        </div>
+        <div class="portrait-placeholder" role="img" aria-label="Ryan L. Burrell monogram placeholder, designed for future portrait replacement">
+          <div class="monogram" aria-hidden="true">RLB</div>
+          <p class="portrait-caption" aria-hidden="true">Operations · Service · Leadership</p>
+        </div>
+      </div>
+    </section>
 
-<!-- ============================================================
-     NAV
-     ============================================================ -->
-<nav id="site-nav" aria-label="Site navigation">
-  <div class="wrap nav-inner">
-    <a class="brand" href="#" aria-label="Ryan L. Burrell — home">
-      RYAN L. <em>BURRELL</em>
-    </a>
-    <ul class="nav-links" role="list">
-      <li><a href="#about">Profile</a></li>
-      <li><a href="#work">Work</a></li>
-      <li><a href="#creative">Creative</a></li>
-      <li><a href="#capabilities">Capabilities</a></li>
-      <li><a href="#experience">Experience</a></li>
-      <li><a href="#contact">Contact</a></li>
-    </ul>
-  </div>
-</nav>
+    <aside class="metrics" aria-label="Career credibility metrics">
+      <div class="container metrics-grid">
+        <div class="metric"><strong class="metric-value">20+</strong><span class="metric-label">years in technology and production support</span></div>
+        <div class="metric"><strong class="metric-value">82%</strong><span class="metric-label">year-over-year reduction in major system outages</span></div>
+        <div class="metric"><strong class="metric-value">99.9%+</strong><span class="metric-label">application availability sustained</span></div>
+        <div class="metric"><strong class="metric-value">182+</strong><span class="metric-label">corporate and retail locations supported nationally</span></div>
+      </div>
+    </aside>
 
+    <section class="section" id="work" aria-labelledby="work-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Selected work</p>
+          <h2 id="work-title">Leadership demonstrated through delivery</h2>
+          <p class="section-intro">Enterprise modernization, commercial product development, and independent analytics work—each presented with a clear role, honest status, and tangible operating context.</p>
+        </header>
 
-<!-- ============================================================
-     HERO
-     ============================================================ -->
-<header class="hero" role="banner">
-  <div class="hero-atmosphere" aria-hidden="true"></div>
+        <!-- PROJECT STATUSES: update status labels and matching classes here. -->
+        <div class="project-list">
+          <article class="project-card" aria-labelledby="project-ai-title">
+            <div class="project-summary">
+              <div class="project-topline"><span class="project-number">01</span><span class="status status-delivered">Delivered</span></div>
+              <h3 id="project-ai-title">AI-Driven Self-Service &amp; Modernization</h3>
+              <p>Turned frontline support knowledge into repeatable operational playbooks and the logic for AI-assisted self-service in a 24/7 national environment.</p>
+              <div class="project-meta">
+                <span class="meta-label">Role</span>
+                <strong>Program &amp; operations leader</strong>
+                <span class="meta-label">Context</span>
+                <span>The Home Depot Canada</span>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>ServiceNow</li><li>BigQuery ML</li><li>ITSM</li><li>Responsible AI</li></ul>
+              </div>
+            </div>
+            <details class="project-details">
+              <summary>Read the AI modernization case study</summary>
+              <div class="case-study">
+                <div class="case-grid">
+                  <div class="case-block"><h4>Context &amp; problem</h4><p>National support operations across 182+ corporate and retail locations needed consistent knowledge, faster resolution paths, and stronger signals for proactive incident management.</p></div>
+                  <div class="case-block"><h4>Responsibilities &amp; decisions</h4><p>As Manager, Information Systems, Ryan led service operations, incident governance, support-team development, and the decision to codify operational knowledge before applying AI.</p></div>
+                  <div class="case-block"><h4>Approach</h4><p>Support practices were converted into reusable playbooks that became the logic for an AI-driven self-service tool. BigQuery ML and ServiceNow Predictive Intelligence helped surface patterns and support more proactive decisions.</p></div>
+                  <div class="case-block"><h4>Outcomes &amp; impact</h4><p>The operating model improved service-desk Average Speed of Answer from four minutes to under 90 seconds and reduced call abandonment from 13% to under 5%, while strengthening repeatability across the support environment.</p></div>
+                  <div class="case-block"><h4>Operating model</h4><p>ITIL-aligned incident, problem, change, knowledge, root-cause analysis, post-incident review, ServiceNow, BigQuery ML, Power BI, Tableau, and vendor partnership.</p></div>
+                  <div class="case-block"><h4>Constraints</h4><p>Employer-confidential implementation details, ticket volumes, adoption figures, and cost savings are intentionally not disclosed.</p></div>
+                </div>
+                <div class="case-cta"><p>Looking for this blend of operational leadership and practical AI?</p><a href="#contact">Start a conversation</a></div>
+              </div>
+            </details>
+          </article>
 
-  <div class="wrap hero-inner">
+          <article class="project-card" aria-labelledby="project-dsr-title">
+            <div class="project-summary">
+              <div class="project-topline"><span class="project-number">02</span><span class="status status-development">In Development</span></div>
+              <h3 id="project-dsr-title">DSR Commercial</h3>
+              <p>Co-founded and architected a marketplace for commercial, industrial, and agricultural vehicles and equipment, carrying product decisions from architecture through business-model iteration.</p>
+              <div class="project-meta">
+                <span class="meta-label">Role</span>
+                <strong>Co-founder, Product &amp; Technology</strong>
+                <span class="meta-label">Current state</span>
+                <span>Phase 2 complete; Phase 3 substantially complete</span>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>Next.js 16</li><li>React 19</li><li>Supabase</li><li>Product Strategy</li><li>Vercel</li></ul>
+              </div>
+            </div>
+            <details class="project-details">
+              <summary>Read the DSR Commercial case study</summary>
+              <div class="case-study">
+                <div class="case-grid">
+                  <div class="case-block"><h4>Context &amp; problem</h4><p>Commercial equipment buyers and sellers need a focused discovery and listing experience suited to varied inventory across vehicles, industrial equipment, and agricultural machinery.</p></div>
+                  <div class="case-block"><h4>Responsibilities &amp; decisions</h4><p>Ryan owns technical direction and co-owns product strategy, including platform architecture, listing workflows, promotion tiers, delivery sequencing, and launch readiness.</p></div>
+                  <div class="case-block"><h4>Approach</h4><p>The product is being delivered in phases, validating core marketplace behavior before introducing monetized promotion tiers: Boost, Premium, and Featured.</p></div>
+                  <div class="case-block"><h4>Outcomes &amp; current state</h4><p>Phase 2 is complete and Phase 3 is substantially complete. The work demonstrates hands-on product ownership from system design through business-model iteration; it is not presented as a finished public launch.</p></div>
+                  <div class="case-block"><h4>Stack</h4><p>Next.js 16, React 19, Supabase, Tailwind CSS v4, and Vercel.</p></div>
+                  <div class="case-block"><h4>What remains</h4><p>A custom domain and live Stripe payments remain launch items. The private staging environment is intentionally not linked.</p></div>
+                </div>
+                <div class="case-cta"><p>Interested in product leadership grounded in operations?</p><a href="#contact">Start a conversation</a></div>
+              </div>
+            </details>
+          </article>
 
-    <!-- Status chips -->
-    <div class="status-row" role="status" aria-label="System status">
-      <span class="chip-live">
-        <span class="pulse-dot" aria-hidden="true"></span>
-        Operational
-      </span>
-      <span class="chip-stat">UPTIME&nbsp;<strong>99.9%+</strong></span>
-      <span class="chip-stat">OUTAGES&nbsp;<strong>&minus;82%</strong></span>
-      <span class="chip-stat">SITES&nbsp;<strong>182</strong></span>
+          <article class="project-card" aria-labelledby="project-market-title">
+            <div class="project-summary">
+              <div class="project-topline"><span class="project-number">03</span><span class="status status-development">In Development</span></div>
+              <h3 id="project-market-title">Market Intelligence &amp; Analytics Platform</h3>
+              <p>Architecting a multi-source research platform that emphasizes data validation, signal quality, guarded interpretation, and structured reporting.</p>
+              <div class="project-meta">
+                <span class="meta-label">Role</span>
+                <strong>Product architect &amp; developer</strong>
+                <span class="meta-label">Scope</span>
+                <span>Independent personal project</span>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>Data Pipelines</li><li>Validation</li><li>Analytics</li><li>LLM Narration</li></ul>
+              </div>
+            </div>
+            <details class="project-details">
+              <summary>Read the market intelligence case study</summary>
+              <div class="case-study">
+                <div class="case-grid">
+                  <div class="case-block"><h4>Context &amp; problem</h4><p>Market research becomes harder to trust when sources, transformations, and assumptions are opaque. The project explores a more structured path from raw inputs to explainable reporting.</p></div>
+                  <div class="case-block"><h4>Responsibilities &amp; decisions</h4><p>Ryan is defining the product architecture, data-processing approach, validation methodology, reporting structure, and guardrails for assisted narration.</p></div>
+                  <div class="case-block"><h4>Approach</h4><p>Multi-source pipelines normalize inputs, validation layers test data quality and signal consistency, and an LLM-assisted layer translates structured findings into guarded narrative summaries.</p></div>
+                  <div class="case-block"><h4>Outcome to date</h4><p>The platform is in active development, with emphasis on traceable inputs, signal quality, and clear separation between observed data and interpretation.</p></div>
+                  <div class="case-block"><h4>Operating model</h4><p>Data ingestion, ETL pipelines, analytical validation, structured reporting, and constrained LLM-assisted narration.</p></div>
+                  <div class="case-block"><h4>Constraints</h4><p>This is a research and analytics project. It does not automate trades, execute orders, claim portfolio returns, or provide financial advice.</p></div>
+                </div>
+                <div class="case-cta"><p>Exploring responsible analytics and AI-enabled reporting?</p><a href="#contact">Start a conversation</a></div>
+              </div>
+            </details>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-rule" id="profile" aria-labelledby="profile-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Leadership profile</p>
+          <h2 id="profile-title">Operational depth, translated into stronger service</h2>
+        </header>
+        <div class="profile-grid">
+          <div class="profile-copy">
+            <p>Ryan’s career began in hands-on web, systems, and Tier 3 application support, building the technical judgment needed to lead when mission-critical services are under pressure. He progressed into cross-functional engineering, service-desk, application-support, and national IT operations leadership.</p>
+            <p>Today, he combines people leadership with ITIL-aligned governance, Agile delivery, vendor partnership, service analytics, and practical automation. The through-line is consistent: make complex operating environments more reliable, make teams more capable, and make performance easier to understand and improve.</p>
+            <p>His applied AI work starts with sound operating knowledge and accountable processes—not technology for its own sake—so modernization remains useful, explainable, and grounded in service outcomes.</p>
+          </div>
+          <div class="capability-grid" aria-label="Core capabilities">
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-layers"/></svg></span><div class="capability-copy"><h3>Application Support Leadership</h3><p>Guides Tier 1–3 support for mission-critical applications with clear ownership and escalation.</p></div></article>
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-briefcase"/></svg></span><div class="capability-copy"><h3>Service Delivery &amp; IT Operations</h3><p>Owns SLAs, service KPIs, operational rhythm, and improvement across complex environments.</p></div></article>
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-check"/></svg></span><div class="capability-copy"><h3>Major Incident &amp; Problem Management</h3><p>Leads response, RCA, post-incident reviews, and controls that reduce repeat disruption.</p></div></article>
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-users"/></svg></span><div class="capability-copy"><h3>Team Leadership &amp; Development</h3><p>Builds accountable, customer-first teams through coaching, feedback, and development planning.</p></div></article>
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg></span><div class="capability-copy"><h3>ITSM, Agile &amp; Continuous Improvement</h3><p>Connects disciplined service management with iterative delivery and measurable change.</p></div></article>
+            <article class="capability"><span class="capability-icon"><svg class="icon" aria-hidden="true"><use href="#icon-chart"/></svg></span><div class="capability-copy"><h3>AI-Enabled Modernization &amp; Analytics</h3><p>Applies automation, analytics, and AI to well-defined operational problems and guardrails.</p></div></article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-rule" id="experience" aria-labelledby="experience-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Experience</p>
+          <h2 id="experience-title">A career built from the operating floor up</h2>
+          <p class="section-intro">More than two decades across production support, telecom platforms, national retail operations, service leadership, and technology advisory work.</p>
+        </header>
+        <!-- CAREER DATES: update each time element and visible label together. -->
+        <ol class="experience-list">
+          <li class="experience-item"><time class="experience-date" datetime="2026-01">January 2026–Present</time><h3 class="experience-role">Technical Support Manager</h3><span class="experience-org">Mahaba House</span><p>Principal technology advisor managing Microsoft 365 cloud infrastructure, IT operations, vendor relationships, service continuity, and AI-enabled modernization.</p></li>
+          <li class="experience-item"><time class="experience-date">2019–January 2026</time><h3 class="experience-role">Manager, Information Systems</h3><span class="experience-org">The Home Depot Canada</span><p>Led national IT operations, service desk, and application support across 182+ corporate and retail locations, owning incident governance, SLAs, team development, and continuous improvement.</p></li>
+          <li class="experience-item"><time class="experience-date">2017–2019</time><h3 class="experience-role">Senior Functional Support Lead</h3><span class="experience-org">The Home Depot Canada</span><p>Served as primary IT support lead for 182 retail locations and designed reporting to identify incident trends and better align resources with demand.</p></li>
+          <li class="experience-item"><time class="experience-date">2015–2017</time><h3 class="experience-role">IT Business Operations Manager</h3><span class="experience-org">Digicel Group</span><p>Led cross-functional engineering teams supporting mission-critical telecom platforms at 99.9%+ availability, reducing major outages by 82% year over year and billing errors by 95% within three months.</p></li>
+          <li class="experience-item"><time class="experience-date">2008–2015</time><h3 class="experience-role">Senior Application Support Engineer (L3)</h3><span class="experience-org">Digicel Group</span><p>Provided 24/7 Tier 3 production support for rating, charging, CRM, and billing platforms, creating middleware fixes and automation for recurring issues.</p></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="section credentials" id="credentials" aria-labelledby="credentials-title">
+      <div class="container">
+        <header class="section-head">
+          <p class="eyebrow">Education &amp; Credentials</p>
+          <h2 id="credentials-title">Foundations for disciplined, modern leadership</h2>
+          <p class="section-intro">Grounded in service-management discipline, extended through Agile delivery, and applied to modern AI practice.</p>
+        </header>
+        <!-- CREDENTIALS: issuer and completion year are maintained here. -->
+        <div class="credential-layout">
+          <section class="credential-group" aria-labelledby="education-title">
+            <h3 class="credential-group-title" id="education-title"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg>Education</h3>
+            <div class="credential-list">
+              <article class="credential-card"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg><div><h3>MSc, Computer-Based Management Information Systems</h3><p>University of the West Indies</p></div></article>
+              <article class="credential-card"><svg class="icon" aria-hidden="true"><use href="#icon-graduation"/></svg><div><h3>BSc, Computer Science</h3><p>University of the West Indies</p></div></article>
+            </div>
+          </section>
+          <section class="credential-group" aria-labelledby="certifications-title">
+            <h3 class="credential-group-title" id="certifications-title"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg>Certifications</h3>
+            <div class="credential-list">
+              <article class="credential-card"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg><div><h3>Google AI Professional Certificate</h3><p>Google · Completed 2026</p></div></article>
+              <article class="credential-card"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg><div><h3>Professional Scrum Master I (PSM I)</h3><p>Scrum.org · Completed 2025</p></div></article>
+              <article class="credential-card"><svg class="icon" aria-hidden="true"><use href="#icon-award"/></svg><div><h3>ITIL v3 Foundation</h3><p>EXIN · Completed 2016</p></div></article>
+            </div>
+          </section>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-card">
+          <div>
+            <p class="eyebrow">Open to opportunity</p>
+            <h2 id="contact-title">Let’s discuss your next IT leadership challenge</h2>
+          </div>
+          <div class="actions">
+            <a class="button button-primary" href="mailto:ryanlb@gmail.com"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>Email Ryan</a>
+            <a class="button" href="Ryan_Burrell_Resume_2026.pdf" download><svg class="icon" aria-hidden="true"><use href="#icon-download"/></svg>Download résumé</a>
+          </div>
+          <p class="lead">Open to senior IT leadership opportunities across IT operations, service delivery, application support, and incident management in the Greater Toronto Area and remotely across North America.</p>
+          <!-- CONTACT LINKS: maintain email, phone, LinkedIn and resume filename here and in metadata above. -->
+          <div class="contact-links">
+            <a href="tel:+14377847827"><svg class="icon" aria-hidden="true"><use href="#icon-phone"/></svg>437-784-7827</a>
+            <a href="mailto:ryanlb@gmail.com"><svg class="icon" aria-hidden="true"><use href="#icon-mail"/></svg>ryanlb@gmail.com</a>
+            <a href="https://www.linkedin.com/in/ryan-burrell" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a>
+            <span><svg class="icon" aria-hidden="true"><use href="#icon-map-pin"/></svg>Greater Toronto Area / Oshawa</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div><p class="footer-name">Ryan L. Burrell</p><p class="footer-meta">Senior IT Manager — Service Delivery &amp; Application Support · Greater Toronto Area</p><p class="footer-meta">© 2026 Ryan L. Burrell</p></div>
+      <nav aria-label="Footer navigation">
+        <ul class="footer-links">
+          <li><a href="mailto:ryanlb@gmail.com">Email</a></li>
+          <li><a href="tel:+14377847827">Phone</a></li>
+          <li><a href="https://www.linkedin.com/in/ryan-burrell" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a></li>
+          <li><a href="Ryan_Burrell_Resume_2026.pdf" download>Résumé</a></li>
+        </ul>
+      </nav>
     </div>
-
-    <!-- Headline -->
-    <h1>
-      <span class="line">MISSION-</span>
-      <span class="line">CRITICAL</span>
-      <span class="line">SYSTEMS,</span>
-      <span class="line">KEPT <span class="dash" aria-hidden="true"></span><span class="accent">RUNNING.</span></span>
-    </h1>
-
-    <p class="hero-sub">
-      Senior technology leader pairing deep L3 enterprise application
-      support with the leadership that turns firefighting into reliability
-      &mdash; now modernizing support with AI.
-    </p>
-
-    <div class="cta-row">
-      <a class="btn btn-primary" href="#work">View selected work &rarr;</a>
-      <a class="btn btn-outline" href="Ryan_Burrell_Resume_2026.pdf" download>Download r&eacute;sum&eacute;</a>
-      <a class="btn btn-outline" href="https://www.linkedin.com/in/ryan-burrell"
-         target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a>
-    </div>
-
-    <!-- Sparkline terminal — self-drawing SVG uptime signal -->
-    <div class="spark-terminal" aria-hidden="true">
-      <div class="spark-term-header">
-        <div class="term-dots">
-          <div class="term-dot"></div>
-          <div class="term-dot"></div>
-          <div class="term-dot"></div>
-        </div>
-        <span class="term-label">// availability &middot; uptime signal</span>
-        <span class="term-status">&#x25CF; LIVE</span>
-      </div>
-      <div class="spark-body">
-        <svg class="spark-svg" viewBox="0 0 1040 56" height="56"
-             xmlns="http://www.w3.org/2000/svg" role="img"
-             aria-label="Abstract uptime sparkline showing sustained high availability">
-          <defs>
-            <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0%"   stop-color="#22D3EE" stop-opacity=".6"/>
-              <stop offset="100%" stop-color="#22D3EE" stop-opacity="0"/>
-            </linearGradient>
-          </defs>
-          <path class="spark-area"
-            d="M0,44 C30,42 55,48 90,40 C125,32 150,50 185,42
-               C220,34 248,52 280,40 C308,29 330,46 365,36
-               C400,26 424,44 460,34 C492,25 515,42 550,32
-               C585,22 608,38 645,28 C680,18 705,34 742,24
-               C778,14 802,29 840,18 C875,8 900,22 938,12
-               C965,5 990,17 1020,8 C1030,5 1036,7 1040,6
-               L1040,56 L0,56 Z"/>
-          <path class="spark-line" id="spark-path"
-            d="M0,44 C30,42 55,48 90,40 C125,32 150,50 185,42
-               C220,34 248,52 280,40 C308,29 330,46 365,36
-               C400,26 424,44 460,34 C492,25 515,42 550,32
-               C585,22 608,38 645,28 C680,18 705,34 742,24
-               C778,14 802,29 840,18 C875,8 900,22 938,12
-               C965,5 990,17 1020,8 C1030,5 1036,7 1040,6"/>
-          <circle class="spark-end-dot" cx="1040" cy="6" r="3.5"/>
-        </svg>
-      </div>
-    </div><!-- /spark-terminal -->
-
-    <!-- Metrics panels -->
-    <div class="metrics-row" id="metrics-row">
-      <div class="metric-panel">
-        <div class="m-num" data-target="20" data-suffix="+">20+</div>
-        <div class="m-lbl">Years in<br>enterprise IT</div>
-      </div>
-      <div class="metric-panel">
-        <div class="m-num" data-static="99.9%+">99.9%+</div>
-        <div class="m-lbl">Application<br>availability</div>
-      </div>
-      <div class="metric-panel">
-        <div class="m-num" data-target="82" data-suffix="%">82%</div>
-        <div class="m-lbl">Fewer major<br>outages YoY</div>
-      </div>
-      <div class="metric-panel">
-        <div class="m-num" data-target="182">182</div>
-        <div class="m-lbl">Sites supported<br>nationally</div>
-      </div>
-    </div>
-
-  </div><!-- /hero-inner -->
-</header>
-
-
-<main id="main-content">
-
-<!-- ============================================================
-     PROFILE + HEADSHOT (#about)
-     ============================================================ -->
-<section id="about" aria-labelledby="about-h">
-  <div class="wrap">
-    <div class="about-grid">
-
-      <!-- Text -->
-      <div class="reveal">
-        <span class="sec-eyebrow">Profile</span>
-        <h2 class="sec-title" id="about-h" style="margin-bottom:24px;">
-          Twenty years at the sharp end.
-        </h2>
-        <p class="about-lead">
-          I spent the hardest, most rewarding years of my career in
-          <strong>24/7 L3 support</strong> &mdash; the deepest point in the chain,
-          where the billing, rating, and charging platforms either stay up or
-          the business stops.
-        </p>
-        <div class="about-body">
-          <p>Over 20+ years I&rsquo;ve moved from writing the middleware fixes
-          myself to leading the teams that prevent the incident in the first
-          place &mdash; sustaining 99.9%+ availability across mission-critical
-          telecom and retail platforms, and cutting major outages by 82% year
-          over year.</p>
-          <p>That combination is the rare part: genuine hands-on depth in
-          enterprise application support, plus the people leadership, ITIL
-          governance, and Agile delivery to turn reactive firefighting into
-          engineered reliability.</p>
-          <p>Today I&rsquo;m focused on modernizing enterprise support with AI
-          &mdash; from predictive incident analysis to AI-built tooling &mdash;
-          and looking for a senior management role anchored back in the L3 world
-          I do best.</p>
-        </div>
-      </div>
-
-      <!-- Headshot -->
-      <div class="reveal" style="transition-delay:100ms;">
-        <!--
-          SWAP: headshot image
-          When portrait is ready, delete .headshot-placeholder and replace with:
-
-          <img src="images/headshot.webp"
-               alt="Ryan L. Burrell — Senior technology leader, Oshawa Ontario"
-               width="300" height="400"
-               loading="eager"
-               class="headshot-img">
-
-          The .headshot-wrap handles corner radius and overlay gradient — no other changes needed.
-        -->
-        <div class="headshot-wrap"
-             role="img"
-             aria-label="Ryan L. Burrell — portrait placeholder; photo coming soon">
-          <div class="headshot-placeholder">
-            <div class="headshot-initials" aria-hidden="true">RB</div>
-            <div class="headshot-sub" aria-hidden="true">Portrait coming soon</div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ============================================================
-     SELECTED WORK (#work) — 3 case studies
-     ============================================================ -->
-<section id="work" aria-labelledby="work-h">
-  <div class="wrap">
-
-    <div class="sec-header reveal">
-      <div>
-        <span class="sec-eyebrow">Selected Work</span>
-        <h2 class="sec-title" id="work-h">Built and delivered</h2>
-      </div>
-      <span class="sec-count">003 projects</span>
-    </div>
-
-    <!-- Scan-line divider (sweeps once on scroll into view) -->
-    <div class="work-divider" aria-hidden="true">
-      <div class="scan-line" id="scan-line"></div>
-    </div>
-
-    <!-- ── 01. Mahaba House ── DELIVERED ── -->
-    <article class="proj-card reveal" aria-label="Case study: Mahaba House">
-      <div class="proj-card-top">
-        <span class="proj-num">01</span>
-        <span class="badge badge-live">
-          <span class="badge-dot" aria-hidden="true"></span>Delivered
-        </span>
-      </div>
-      <div class="proj-card-body">
-        <span class="proj-tag">Cloud platform &middot; AI-assisted build</span>
-        <h3>Mahaba House &mdash; Cloud Operations &amp; AI-Built Web Platform</h3>
-        <span class="proj-role">Technical Support Manager</span>
-        <div class="pir">
-          <div class="pir-row">
-            <div class="pir-k">Context</div>
-            <div class="pir-v">A nonprofit needed a credible digital presence and a sustainable operating platform, with no in-house IT team and a lean budget.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Approach</div>
-            <div class="pir-v">Architected a cloud-based Microsoft 365 environment, then led design and development of the website and web applications using AI-assisted tooling (Claude Code) to ship production-ready code on a compressed timeline. Set governance and brand standards across digital and print.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Outcome</div>
-            <div class="pir-v">A scalable, secure, integrated operating environment delivered without a traditional development team, and a repeatable model for AI-accelerated delivery.</div>
-          </div>
-        </div>
-        <div class="chip-row">
-          <span class="chip">Microsoft 365</span>
-          <span class="chip">Claude Code</span>
-          <span class="chip">Cloud Administration</span>
-          <span class="chip">Web Development</span>
-          <span class="chip">Governance</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ── 02. DSR Commercial ── IN DEVELOPMENT ── -->
-    <article class="proj-card reveal" aria-label="Case study: DSR Commercial">
-      <div class="proj-card-top">
-        <span class="proj-num">02</span>
-        <span class="badge badge-dev">
-          <span class="badge-dot" aria-hidden="true"></span>In development &mdash; Phase&nbsp;1 prototype complete
-        </span>
-      </div>
-      <div class="proj-card-body">
-        <span class="proj-tag">Marketplace &middot; B2B/B2C</span>
-        <h3>DSR Commercial &mdash; Industrial &amp; Commercial Vehicle Marketplace</h3>
-        <span class="proj-role">Co-founder &amp; Technical Lead</span>
-        <div class="pir">
-          <div class="pir-row">
-            <div class="pir-k">Context</div>
-            <div class="pir-v">Buyers and sellers of industrial, commercial, and agricultural vehicles and equipment across North America and the Caribbean lack a trusted, purpose-built marketplace; existing options are fragmented or consumer-focused.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Approach</div>
-            <div class="pir-v">Co-founded a B2B/B2C marketplace and lead its technical direction &mdash; defining product requirements, platform architecture, and a multi-currency, search-first experience, with the build executed through AI-assisted development.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Outcome</div>
-            <div class="pir-v">First-phase prototype delivered and in active build; architecture designed to scale from launch through partner onboarding and international expansion.</div>
-          </div>
-        </div>
-        <div class="chip-row">
-          <span class="chip">Marketplace / E-commerce</span>
-          <span class="chip">Platform Architecture</span>
-          <span class="chip">Multi-Currency</span>
-          <span class="chip">AI-Assisted Build</span>
-          <span class="chip">North America + Caribbean</span>
-        </div>
-      </div>
-    </article>
-
-    <!-- ── 03. Endowment AI Tool ── CONCEPT ── -->
-    <article class="proj-card reveal" aria-label="Case study: AI Compliance tool">
-      <div class="proj-card-top">
-        <span class="proj-num">03</span>
-        <span class="badge badge-concept">
-          <span class="badge-dot" aria-hidden="true"></span>Concept
-        </span>
-      </div>
-      <div class="proj-card-body">
-        <span class="proj-tag">Venture concept &middot; SaaS</span>
-        <h3>AI Compliance &amp; Reporting for Foundations &amp; Endowments</h3>
-        <span class="proj-role">Founder concept</span>
-        <div class="pir">
-          <div class="pir-row">
-            <div class="pir-k">Context</div>
-            <div class="pir-v">Foundations and endowment funds carry a growing compliance and reporting burden with small back-office teams &mdash; a gap known firsthand from years in endowment-fund IT.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Approach</div>
-            <div class="pir-v">Designing an AI-assisted compliance-and-reporting tool that ingests fund data and produces governance-ready output, targeted at the Canadian market.</div>
-          </div>
-          <div class="pir-row">
-            <div class="pir-k">Outcome</div>
-            <div class="pir-v">Concept validated against direct domain experience; architecture and go-to-market under development.</div>
-          </div>
-        </div>
-        <div class="chip-row">
-          <span class="chip">AI / LLM</span>
-          <span class="chip">Compliance Automation</span>
-          <span class="chip">SaaS</span>
-          <span class="chip">Reporting</span>
-          <span class="chip">Canadian Market</span>
-        </div>
-      </div>
-    </article>
-
-  </div>
-</section>
-
-
-<!-- ============================================================
-     CREATIVE & DESIGN (#creative)
-     ============================================================ -->
-<section id="creative" aria-labelledby="creative-h">
-  <div class="wrap">
-
-    <div class="sec-header reveal">
-      <div>
-        <span class="sec-eyebrow">Creative &amp; Design</span>
-        <h2 class="sec-title" id="creative-h">Design range, AI-assisted</h2>
-      </div>
-      <span class="sec-count">003 pieces</span>
-    </div>
-
-    <p class="creative-lead reveal">
-      Design capability built alongside technical leadership &mdash; brand
-      identity, print, and digital visual work executed with AI-assisted
-      tooling. Range that reinforces judgment, not a career pivot.
-    </p>
-
-    <!--
-      GALLERY SWAP GUIDE
-      ==================
-      For each tile when real artwork is ready:
-        1. Delete the .tile-placeholder div inside .tile-img-wrap
-        2. Add: <img src="images/creative-N.webp"
-                     alt="[describe the piece precisely]"
-                     width="400" height="300"
-                     loading="lazy"
-                     class="tile-img">
-        3. Update data-title, data-desc, data-tags attributes on .gallery-tile
-        4. Update .tile-title, .tile-desc, .tile-tags in .tile-body to match
-    -->
-    <div class="gallery-grid" id="gallery-grid">
-
-      <!-- Tile 1 — SWAP: images/creative-1.webp -->
-      <div class="gallery-tile"
-           role="button" tabindex="0"
-           data-title="Brand Identity System"
-           data-desc="Visual identity for a mission-driven organization — wordmark, colour palette, type system, and print standards built with AI-assisted tooling."
-           aria-label="Open Brand Identity System in lightbox">
-        <div class="tile-img-wrap">
-          <!-- SWAP: replace with <img src="images/creative-1.webp" alt="[description]" width="400" height="300" loading="lazy" class="tile-img"> -->
-          <div class="tile-placeholder tile-ph-1" aria-hidden="true">
-            <span class="tile-ph-icon">brand &middot; identity</span>
-          </div>
-          <div class="tile-overlay" aria-hidden="true">
-            <span class="tile-overlay-text">View full piece &rarr;</span>
-          </div>
-        </div>
-        <div class="tile-body">
-          <div class="tile-title">Brand Identity System</div>
-          <div class="tile-desc">Visual identity for a mission-driven organization &mdash; wordmark, colour system, and print standards.</div>
-          <div class="tile-tags">
-            <span class="tile-tag">Claude Code</span>
-            <span class="tile-tag">Kittl</span>
-            <span class="tile-tag">Brand Design</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tile 2 — SWAP: images/creative-2.webp -->
-      <div class="gallery-tile"
-           role="button" tabindex="0"
-           data-title="AI-Generated Visual Direction"
-           data-desc="Concept imagery and editorial tone developed with generative AI — mood, palette, and visual direction for digital campaigns."
-           aria-label="Open AI-Generated Visual Direction in lightbox">
-        <div class="tile-img-wrap">
-          <!-- SWAP: replace with <img src="images/creative-2.webp" alt="[description]" width="400" height="300" loading="lazy" class="tile-img"> -->
-          <div class="tile-placeholder tile-ph-2" aria-hidden="true">
-            <span class="tile-ph-icon">ai &middot; visual</span>
-          </div>
-          <div class="tile-overlay" aria-hidden="true">
-            <span class="tile-overlay-text">View full piece &rarr;</span>
-          </div>
-        </div>
-        <div class="tile-body">
-          <div class="tile-title">AI-Generated Visual Direction</div>
-          <div class="tile-desc">Concept imagery and editorial tone developed with generative AI tooling for digital campaigns.</div>
-          <div class="tile-tags">
-            <span class="tile-tag">GenAI</span>
-            <span class="tile-tag">Art Direction</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Tile 3 — SWAP: images/creative-3.webp -->
-      <div class="gallery-tile"
-           role="button" tabindex="0"
-           data-title="Web &amp; UI Design"
-           data-desc="Interface design and layout systems — component hierarchies and visual polish for production web properties."
-           aria-label="Open Web &amp; UI Design in lightbox">
-        <div class="tile-img-wrap">
-          <!-- SWAP: replace with <img src="images/creative-3.webp" alt="[description]" width="400" height="300" loading="lazy" class="tile-img"> -->
-          <div class="tile-placeholder tile-ph-3" aria-hidden="true">
-            <span class="tile-ph-icon">web &middot; ui</span>
-          </div>
-          <div class="tile-overlay" aria-hidden="true">
-            <span class="tile-overlay-text">View full piece &rarr;</span>
-          </div>
-        </div>
-        <div class="tile-body">
-          <div class="tile-title">Web &amp; UI Design</div>
-          <div class="tile-desc">Interface design and layout systems &mdash; visual polish for production web properties.</div>
-          <div class="tile-tags">
-            <span class="tile-tag">Claude Code</span>
-            <span class="tile-tag">UI Design</span>
-            <span class="tile-tag">Web</span>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /gallery-grid -->
-  </div>
-</section>
-
-
-<!-- ============================================================
-     CAPABILITIES (#capabilities)
-     ============================================================ -->
-<section id="capabilities" aria-labelledby="cap-h">
-  <div class="wrap">
-
-    <div class="sec-header reveal">
-      <div>
-        <span class="sec-eyebrow">Capabilities</span>
-        <h2 class="sec-title" id="cap-h">What I bring to the room</h2>
-      </div>
-      <span class="sec-count">006 domains</span>
-    </div>
-
-    <div class="cap-grid reveal">
-      <div class="cap" data-num="01">
-        <span class="cap-eye">Depth</span>
-        <h4>L3 Application Support</h4>
-        <p>Root-cause engineering on billing, rating, charging, CRM, and provisioning platforms &mdash; at the code, middleware, and platform level.</p>
-      </div>
-      <div class="cap" data-num="02">
-        <span class="cap-eye">Reliability</span>
-        <h4>Incident &amp; Problem Governance</h4>
-        <p>ITIL-aligned major incident command, CAB participation, and Post-Incident Reviews that stop recurrence rather than patch symptoms.</p>
-      </div>
-      <div class="cap" data-num="03">
-        <span class="cap-eye">Leadership</span>
-        <h4>Engineering Team Leadership</h4>
-        <p>Building and coaching cross-functional engineering teams to high availability, accountability, and continuous improvement.</p>
-      </div>
-      <div class="cap" data-num="04">
-        <span class="cap-eye">Delivery</span>
-        <h4>Agile / Scrum (PSM I)</h4>
-        <p>Backlog management, sprint planning, and retrospectives applied to real service-improvement outcomes &mdash; not ceremony for its own sake.</p>
-      </div>
-      <div class="cap" data-num="05">
-        <span class="cap-eye">Insight</span>
-        <h4>Data &amp; Predictive Analytics</h4>
-        <p>BigQuery ML incident-trend analysis and executive reporting in Power BI and Tableau to make support proactive.</p>
-      </div>
-      <div class="cap" data-num="06">
-        <span class="cap-eye">Modernization</span>
-        <h4>AI-Driven Support</h4>
-        <p>Codifying support into AI-driven self-service and AI-assisted development to deflect volume and accelerate delivery.</p>
-      </div>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ============================================================
-     EXPERIENCE (#experience)
-     ============================================================ -->
-<section id="experience" aria-labelledby="exp-h">
-  <div class="wrap">
-
-    <div class="sec-header reveal">
-      <div>
-        <span class="sec-eyebrow">Experience</span>
-        <h2 class="sec-title" id="exp-h">Twenty years, one through-line</h2>
-      </div>
-    </div>
-
-    <div class="xp-list reveal">
-
-      <div class="xp-item">
-        <div class="xp-top">
-          <span class="xp-role">Technical Support Manager</span>
-          <span class="xp-org">Mahaba House</span>
-        </div>
-        <div class="xp-sub">Cloud operations, application support &amp; AI modernization</div>
-        <div class="xp-yr">2025 &mdash; Present</div>
-      </div>
-
-      <div class="xp-item">
-        <div class="xp-top">
-          <span class="xp-role">Manager, Information Systems (Helpdesk)</span>
-          <span class="xp-org">The Home Depot Canada</span>
-        </div>
-        <div class="xp-sub">National Tier 1/2 support &middot; AI-driven modernization</div>
-        <div class="xp-yr">2019 &mdash; 2026</div>
-      </div>
-
-      <div class="xp-item">
-        <div class="xp-top">
-          <span class="xp-role">Senior Functional Support Lead</span>
-          <span class="xp-org">The Home Depot Canada</span>
-        </div>
-        <div class="xp-sub">Application &amp; technical support across 182 sites</div>
-        <div class="xp-yr">2017 &mdash; 2019</div>
-      </div>
-
-      <div class="xp-item">
-        <div class="xp-top">
-          <span class="xp-role">IT Business Operations Manager</span>
-          <span class="xp-org">Digicel Group</span>
-        </div>
-        <div class="xp-sub">Telecom application engineering teams &middot; 82% fewer outages</div>
-        <div class="xp-yr">2015 &mdash; 2017</div>
-      </div>
-
-      <div class="xp-item">
-        <div class="xp-top">
-          <span class="xp-role">Senior Application Support Engineer (L3)</span>
-          <span class="xp-org">Digicel Group</span>
-        </div>
-        <div class="xp-sub">24/7 Redknee rating, charging, CRM &amp; billing platforms</div>
-        <div class="xp-yr">2008 &mdash; 2015</div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-</main>
-
-
-<!-- ============================================================
-     FOOTER / CONTACT (#contact)
-     ============================================================ -->
-<footer id="contact" role="contentinfo">
-  <div class="wrap foot-inner">
-    <div class="foot-top">
-      <div class="foot-name">RYAN L. <em>BURRELL</em></div>
-      <div class="foot-sub">Senior Enterprise Technology Leader</div>
-      <p class="foot-lead">
-        Open to senior management roles in enterprise application and L3
-        support across the Toronto GTA and remote North America.
-      </p>
-      <div class="foot-links">
-        <a class="btn btn-primary" href="mailto:ryanlb@gmail.com">Email me</a>
-        <a class="btn btn-outline" href="https://www.linkedin.com/in/ryan-burrell"
-           target="_blank" rel="noopener noreferrer">LinkedIn &#x2197;</a>
-        <a class="btn btn-outline" href="Ryan_Burrell_Resume_2026.pdf" download>Download r&eacute;sum&eacute;</a>
-      </div>
-    </div>
-    <div class="foot-divider" aria-hidden="true"></div>
-    <div class="foot-meta">
-      <span>Ryan L. Burrell &middot; Oshawa, Ontario, Canada</span>
-      <span>PSM I &middot; ITIL v3 &middot; MSc MIS &middot; AWS AI Practitioner (in progress)</span>
-    </div>
-  </div>
-</footer>
-
-
-<!-- ============================================================
-     JAVASCRIPT
-     ============================================================ -->
-<script>
-(function () {
-  'use strict';
-
-  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  /* ---- Nav: condense on scroll + scroll-spy ---- */
-  var siteNav  = document.getElementById('site-nav');
-  var navLinks = Array.from(document.querySelectorAll('.nav-links a'));
-  var spySections = Array.from(document.querySelectorAll(
-    'header.hero, section[id], footer[id]'));
-
-  function updateNav() {
-    var y = window.scrollY;
-    siteNav.classList.toggle('scrolled', y > 70);
-    var current = '';
-    spySections.forEach(function (s) {
-      if (y >= s.offsetTop - 100) current = s.id || '';
+  </footer>
+  <script>
+    // Native disclosures work without JavaScript. This small enhancement keeps
+    // Enter/Space behavior consistent in embedded and assistive browser shells.
+    document.querySelectorAll('summary').forEach((summary) => {
+      summary.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          summary.parentElement.open = !summary.parentElement.open;
+        }
+      });
     });
-    navLinks.forEach(function (a) {
-      a.classList.toggle('active',
-        a.getAttribute('href').replace('#','') === current);
-    });
-  }
-  window.addEventListener('scroll', updateNav, { passive: true });
-  updateNav();
-
-  /* ---- Sparkline stroke-dashoffset self-draw ---- */
-  if (!reduced) {
-    var spark = document.getElementById('spark-path');
-    if (spark) {
-      try {
-        var len = spark.getTotalLength();
-        spark.style.strokeDasharray  = len;
-        spark.style.strokeDashoffset = len;
-        setTimeout(function () {
-          spark.style.transition =
-            'stroke-dashoffset 1.2s cubic-bezier(.22,1,.36,1)';
-          spark.style.strokeDashoffset = '0';
-        }, 620);
-      } catch (e) { /* SVG not supported */ }
-    }
-  }
-
-  /* ---- Count-up for metrics ---- */
-  var countDone = false;
-  function runCountUp() {
-    if (countDone) return;
-    countDone = true;
-    if (reduced) return;
-    document.querySelectorAll('.m-num[data-target]').forEach(function (el) {
-      var target   = parseInt(el.getAttribute('data-target'), 10);
-      var suffix   = el.getAttribute('data-suffix') || '';
-      var duration = 950;
-      var t0 = performance.now();
-      (function tick(now) {
-        var p = Math.min((now - t0) / duration, 1);
-        var e = p === 1 ? 1 : 1 - Math.pow(2, -10 * p); // ease-out-expo
-        el.textContent = Math.round(e * target) + suffix;
-        if (p < 1) requestAnimationFrame(tick);
-      }(performance.now()));
-    });
-  }
-
-  /* ---- Scan-line ---- */
-  var scanDone = false;
-  function runScanLine() {
-    if (scanDone || reduced) return;
-    scanDone = true;
-    var sl = document.getElementById('scan-line');
-    if (sl) sl.classList.add('sweep');
-  }
-
-  /* ---- IntersectionObserver ---- */
-  if (!('IntersectionObserver' in window)) {
-    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
-    document.getElementById('gallery-grid').classList.add('cascaded');
-    runCountUp();
-    return;
-  }
-
-  /* General reveal */
-  var revealIO = new IntersectionObserver(function (entries) {
-    entries.forEach(function (en) {
-      if (en.isIntersecting) { en.target.classList.add('in'); revealIO.unobserve(en.target); }
-    });
-  }, { threshold: 0.11, rootMargin: '0px 0px -32px 0px' });
-  document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
-
-  /* Gallery cascade */
-  var gg = document.getElementById('gallery-grid');
-  if (gg) {
-    new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting) { gg.classList.add('cascaded'); obs.disconnect(); }
-    }, { threshold: 0.08 }).observe(gg);
-  }
-
-  /* Metrics count-up */
-  var mr = document.getElementById('metrics-row');
-  if (mr) {
-    new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting) { runCountUp(); obs.disconnect(); }
-    }, { threshold: 0.3 }).observe(mr);
-  }
-
-  /* Scan-line */
-  var ws = document.getElementById('work');
-  if (ws) {
-    new IntersectionObserver(function (entries, obs) {
-      if (entries[0].isIntersecting) { runScanLine(); obs.disconnect(); }
-    }, { threshold: 0.15 }).observe(ws);
-  }
-
-  /* ---- Lightbox ---- */
-  var lightbox  = document.getElementById('lightbox');
-  var lbClose   = document.getElementById('lb-close');
-  var lbTitle   = document.getElementById('lb-title');
-  var lbDesc    = document.getElementById('lb-desc');
-  var lbImgWrap = document.getElementById('lb-img-wrap');
-  var lastFocus = null;
-
-  var PH_CLASS = ['tile-ph-1','tile-ph-2','tile-ph-3'];
-  var FOCUSABLE = 'button:not([disabled]),[tabindex]:not([tabindex="-1"]),a[href]';
-
-  function openLightbox(tile, idx) {
-    lastFocus = tile;
-    lbTitle.textContent = tile.getAttribute('data-title') || '';
-    lbDesc.textContent  = tile.getAttribute('data-desc')  || '';
-
-    /* Build placeholder visual */
-    lbImgWrap.innerHTML = '';
-    var ph = document.createElement('div');
-    ph.className = 'lb-placeholder ' + (PH_CLASS[idx] || PH_CLASS[0]);
-    ph.setAttribute('aria-hidden','true');
-    var lbl = document.createElement('div');
-    lbl.style.cssText = 'font-family:var(--mono);font-size:.8rem;letter-spacing:.1em;' +
-      'text-transform:uppercase;color:rgba(229,232,244,.3);';
-    lbl.textContent = tile.getAttribute('data-title') || '';
-    ph.appendChild(lbl);
-    lbImgWrap.appendChild(ph);
-
-    lightbox.setAttribute('aria-hidden','false');
-    lightbox.classList.add('open');
-    document.body.style.overflow = 'hidden';
-    setTimeout(function () { lbClose.focus(); }, 40);
-  }
-
-  function closeLightbox() {
-    lightbox.classList.remove('open');
-    lightbox.setAttribute('aria-hidden','true');
-    document.body.style.overflow = '';
-    if (lastFocus) lastFocus.focus();
-  }
-
-  /* Focus trap */
-  lightbox.addEventListener('keydown', function (e) {
-    if (!lightbox.classList.contains('open')) return;
-    if (e.key === 'Escape') { closeLightbox(); return; }
-    if (e.key !== 'Tab') return;
-    var nodes = Array.from(lightbox.querySelectorAll(FOCUSABLE))
-      .filter(function (n) { return n.offsetParent !== null; });
-    if (!nodes.length) return;
-    var first = nodes[0], last = nodes[nodes.length - 1];
-    if (e.shiftKey) {
-      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-    } else {
-      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
-    }
-  });
-
-  lbClose.addEventListener('click', closeLightbox);
-  lightbox.addEventListener('click', function (e) {
-    if (e.target === lightbox) closeLightbox();
-  });
-
-  /* Wire tiles */
-  Array.from(document.querySelectorAll('.gallery-tile')).forEach(function (tile, idx) {
-    tile.addEventListener('click', function () { openLightbox(tile, idx); });
-    tile.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openLightbox(tile, idx); }
-    });
-  });
-
-}());
-</script>
-
+  </script>
 </body>
 </html>
