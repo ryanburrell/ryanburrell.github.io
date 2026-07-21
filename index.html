@@ -275,8 +275,9 @@
     /* Projects */
     .project-list { display: grid; gap: 1.25rem; }
     .project-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); overflow: clip; }
-    .project-cover { margin: 0; aspect-ratio: 16 / 7; overflow: hidden; background: var(--navy-deep); border-bottom: 1px solid var(--border); }
-    .project-cover img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .project-cover { margin: 0; overflow: hidden; background: var(--navy-deep); border-bottom: 1px solid var(--border); }
+    .project-cover-title { display: block; padding: .75rem clamp(1.4rem, 4vw, 2.25rem); background: var(--navy); color: #fff; font-family: var(--font-mono); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .project-cover img { display: block; width: 100%; aspect-ratio: 16 / 7; height: auto; object-fit: cover; }
     .project-cover--solstice img { object-position: center 54%; }
     .project-cover--dsr img { object-position: center top; }
     .project-summary { display: grid; gap: 1.25rem; padding: clamp(1.4rem, 4vw, 2.25rem); }
@@ -507,7 +508,7 @@
         <!-- PROJECT STATUSES: update status labels and matching classes here. -->
         <div class="project-list">
           <article class="project-card" aria-labelledby="project-solstice-title">
-            <figure class="project-cover project-cover--solstice"><img src="images/solstice-and-co-cover.webp" alt="Solstice and Co. travel-goods campaign" loading="lazy" decoding="async" /></figure>
+            <figure class="project-cover project-cover--solstice"><figcaption class="project-cover-title">Solstice &amp; Co. — Brand Campaign</figcaption><img src="images/solstice-and-co-cover.webp" alt="Solstice and Co. travel-goods campaign" loading="lazy" decoding="async" /></figure>
             <div class="project-summary">
               <div class="project-topline"><span class="project-number">01</span><span class="status status-delivered">Portfolio Showcase</span></div>
               <h3 id="project-solstice-title">Solstice &amp; Co. — Brand Campaign</h3>
@@ -564,7 +565,7 @@
           </article>
 
           <article class="project-card" aria-labelledby="project-dsr-title">
-            <figure class="project-cover project-cover--dsr"><img src="images/dsr-commercial-cover.png" alt="DSR Commercial marketplace home screen" loading="lazy" decoding="async" /></figure>
+            <figure class="project-cover project-cover--dsr"><figcaption class="project-cover-title">DSR Commercial</figcaption><img src="images/dsr-commercial-cover.png" alt="DSR Commercial marketplace home screen" loading="lazy" decoding="async" /></figure>
             <div class="project-summary">
               <div class="project-topline"><span class="project-number">03</span><span class="status status-delivered">Delivered</span></div>
               <h3 id="project-dsr-title">DSR Commercial</h3>
