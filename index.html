@@ -277,6 +277,8 @@
     .project-card { border: 1px solid var(--border); border-radius: var(--radius-lg); background: var(--surface); overflow: clip; }
     .project-cover { margin: 0; overflow: hidden; background: var(--navy-deep); border-bottom: 1px solid var(--border); }
     .project-cover-title { display: block; padding: .75rem clamp(1.4rem, 4vw, 2.25rem); background: var(--navy); color: #fff; font-family: var(--font-mono); font-size: .78rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .project-cover-link { display: block; }
+    .project-cover-link:focus-visible { outline: 3px solid var(--teal); outline-offset: -3px; }
     .project-cover img { display: block; width: 100%; aspect-ratio: 16 / 7; height: auto; object-fit: cover; }
     .project-cover--solstice img { object-position: center 54%; }
     .project-cover--dsr img { object-position: center top; }
@@ -510,7 +512,7 @@
         <!-- PROJECT STATUSES: update status labels and matching classes here. -->
         <div class="project-list">
                     <article class="project-card" aria-labelledby="project-mta-title">
-            <figure class="project-cover project-cover--mta"><figcaption class="project-cover-title">New York City MTA Subway Forecasting Dashboard</figcaption><img src="images/mta-subway-forecasting-cover.png" alt="New York City MTA Subway Forecasting Dashboard showing route filters, demand and supply chart, and station demand map" loading="lazy" decoding="async" /></figure>
+            <figure class="project-cover project-cover--mta"><figcaption class="project-cover-title">New York City MTA Subway Forecasting Dashboard</figcaption><a class="project-cover-link" href="https://mta-forecast-dashboard.vercel.app/" target="_blank" rel="noopener noreferrer" aria-label="Open the MTA Forecasting Dashboard (opens in a new tab)"><img src="images/mta-subway-forecasting-cover.png" alt="New York City MTA Subway Forecasting Dashboard showing route filters, demand and supply chart, and station demand map" loading="lazy" decoding="async" /></a></figure>
             <div class="project-summary">
               <div class="project-topline"><span class="project-number">01</span><span class="status status-development">Independent Project</span></div>
               <h3 id="project-mta-title">New York City MTA Subway Forecasting Dashboard</h3>
