@@ -281,6 +281,7 @@
     .project-cover--solstice img { object-position: center 54%; }
     .project-cover--dsr img { object-position: center top; }
     .project-cover--wimax img { object-position: center; background: #fff; }
+    .project-cover--mta img { object-position: center top; }
     .project-summary { display: grid; gap: 1.25rem; padding: clamp(1.4rem, 4vw, 2.25rem); }
     .project-topline { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem .85rem; }
     .project-number { color: var(--muted); font-family: var(--font-mono); font-size: .78rem; letter-spacing: .08em; }
@@ -508,10 +509,32 @@
 
         <!-- PROJECT STATUSES: update status labels and matching classes here. -->
         <div class="project-list">
-          <article class="project-card" aria-labelledby="project-solstice-title">
-            <figure class="project-cover project-cover--solstice"><figcaption class="project-cover-title">Solstice &amp; Co. — Brand Campaign</figcaption><img src="images/solstice-and-co-cover.webp" alt="Solstice and Co. travel-goods campaign" loading="lazy" decoding="async" /></figure>
-            <div class="project-summary">
-              <div class="project-topline"><span class="project-number">01</span><span class="status status-delivered">Portfolio Showcase</span></div>
+          $101</span><span class="status status-development">Independent Project</span></div>
+              <h3 id="project-mta-title">New York City MTA Subway Forecasting Dashboard</h3>
+              <p>Built a self-directed transit data product that forecasts route demand, scheduled capacity, service reliability, and station crowding risk using only openly published MTA and NYC data.</p>
+              <div class="project-meta">
+                <span class="meta-label">Role</span>
+                <strong>Product architect &amp; developer</strong>
+                <span class="meta-label">Scope</span>
+                <span>Independent public-data forecasting product</span>
+                <ul class="tags" aria-label="Capabilities and technologies"><li>Next.js</li><li>Python</li><li>Postgres + PostGIS</li><li>React-Leaflet</li><li>GitHub Actions</li><li>Vercel</li></ul>
+              </div>
+            </div>
+            <details class="project-details">
+              <summary>Read the MTA forecasting case study</summary>
+              <div class="case-study">
+                <div class="case-grid">
+                  <div class="case-block"><h4>Context &amp; opportunity</h4><p>The project explores what can be built for riders and planners using public transit data alone: no proprietary agency access and no paid data feeds.</p></div>
+                  <div class="case-block"><h4>Forecasting focus</h4><p>The dashboard models baseline demand and scheduled capacity by route and day of week, the effect of delays and service incidents on realized reliability, and station-level crowding risk with a nearby-event scenario overlay.</p></div>
+                  <div class="case-block"><h4>Data foundation</h4><p>Inputs are sourced, verified, and documented from open MTA and NYC publications, including hourly station ridership, GTFS schedules, and monthly major-incident records.</p></div>
+                  <div class="case-block"><h4>Architecture</h4><p>A scheduled Python pipeline computes recurring forecasts and writes them to Postgres/PostGIS. A Next.js dashboard renders parameter-driven charts and an interactive map.</p></div>
+                  <div class="case-block"><h4>Engineering tradeoff</h4><p>The product uses a precomputed forecast grid rather than live model inference in the request path, keeping the dashboard responsive and the infrastructure within free-tier constraints. The limitation is disclosed directly in the product.</p></div>
+                  <div class="case-block"><h4>Stack</h4><p>Next.js, React, Supabase (Postgres + PostGIS), Python (pandas and statsmodels), React-Leaflet, GitHub Actions, and Vercel.</p></div>
+                </div>
+              </div>
+            </details>
+          </article>
+          $102</span><span class="status status-delivered">Portfolio Showcase</span></div>
               <h3 id="project-solstice-title">Solstice &amp; Co. — Brand Campaign</h3>
               <p>Created a premium editorial launch site for a fictional travel-goods brand, translating a product brief into a cohesive digital campaign across still imagery, motion, and responsive web design.</p>
               <div class="project-meta">
@@ -536,9 +559,7 @@
               </div>
             </details>
           </article>
-          <article class="project-card" aria-labelledby="project-ai-title">
-            <div class="project-summary">
-              <div class="project-topline"><span class="project-number">02</span><span class="status status-delivered">Production + Pilot</span></div>
+          $103</span><span class="status status-delivered">Production + Pilot</span></div>
               <h3 id="project-ai-title">AI-Enabled Service Modernization</h3>
               <p>Built the production data and reporting foundation for AI-enabled service insights while piloting conversational self-service for associates in a 24/7 national environment.</p>
               <div class="project-meta">
@@ -565,10 +586,7 @@
             </details>
           </article>
 
-          <article class="project-card" aria-labelledby="project-dsr-title">
-            <figure class="project-cover project-cover--dsr"><figcaption class="project-cover-title">DSR Commercial</figcaption><img src="images/dsr-commercial-cover.png" alt="DSR Commercial marketplace home screen" loading="lazy" decoding="async" /></figure>
-            <div class="project-summary">
-              <div class="project-topline"><span class="project-number">03</span><span class="status status-delivered">Delivered</span></div>
+          $104</span><span class="status status-delivered">Delivered</span></div>
               <h3 id="project-dsr-title">DSR Commercial</h3>
               <p>Co-founded and architected a marketplace for commercial, industrial, and agricultural vehicles and equipment, carrying product decisions from architecture through business-model iteration.</p>
               <div class="project-meta">
@@ -595,9 +613,7 @@
             </details>
           </article>
 
-          <article class="project-card" aria-labelledby="project-market-title">
-            <div class="project-summary">
-              <div class="project-topline"><span class="project-number">04</span><span class="status status-development">In Development</span></div>
+          $105</span><span class="status status-development">In Development</span></div>
               <h3 id="project-market-title">Market Intelligence &amp; Analytics Platform</h3>
               <p>Architecting a multi-source research platform that emphasizes data validation, signal quality, guarded interpretation, and structured reporting.</p>
               <div class="project-meta">
@@ -624,10 +640,7 @@
             </details>
           </article>
 
-          <article class="project-card" aria-labelledby="project-wimax-title">
-            <figure class="project-cover project-cover--wimax"><figcaption class="project-cover-title">Islandwide 4G WiMAX Launch — Jamaica</figcaption><img src="images/wimax-launch-cover.png" alt="4G WiMAX network devices used for the Jamaica launch" loading="lazy" decoding="async" /></figure>
-            <div class="project-summary">
-              <div class="project-topline"><span class="project-number">05</span><span class="status status-delivered">Delivered</span></div>
+          $106</span><span class="status status-delivered">Delivered</span></div>
               <h3 id="project-wimax-title">Islandwide 4G WiMAX Launch — Jamaica</h3>
               <p>Led core application integrations for a year-long launch that brought wireless 4G internet access across Jamaica, including communities without another internet option.</p>
               <div class="project-meta">
